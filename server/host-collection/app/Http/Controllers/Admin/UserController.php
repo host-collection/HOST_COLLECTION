@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Model\Users as DTUsers;
+use App\Model\RoleName as DTRoleName;
 
 use Validator;
 use DB;
@@ -23,18 +24,18 @@ class UserController extends InitController
                 "password"=>"required|confirmed|min:6",
 
             ],[
-                "name.required"=>"Vui lòng nhập tên.",
-                "name.max"=>"Vượt quá ký tự giới hạn",
-                "email.required"=>" Vui lòng nhập Email",
-                "email.email"=>"Vui lòng nhập đúng định dạng Email",
-                "email.unique"=>"Email đã tồn tại",
-                "phone.required"=>"Vui lòng số điện thoại",
-                "username.required"=>"Vui lòng nhập tên đăng nhập",
-                "username.unique"=>"Tên đăng nhập đã tồn tại ",
-                "password.required"=>"Vui lòng nhập mật khẩu",
-                "password.min"=>"Mật khẩu không nhỏ hơn 6 ký tự",
+                "name.required"=>"Please input full name",
+                "name.max"=>"Exceeds the character limit",
+                "email.required"=>"Please input email",
+                "email.email"=>"Please enter the correct format Email",
+                "email.unique"=>"Email already exist",
+                "phone.required"=>"Please input Phone",
+                "username.required"=>"Please user name login",
+                "username.unique"=>"User name already exist",
+                "password.required"=>"Please input password",
+                "password.min"=>"Password is not less than 6 characters",
 
-                "password.confirmed"=>"Nhập lại mật khẩu không chính xác"
+                "password.confirmed"=>"Re password incorrect"
     		]);
     		if($validator->fails()){
     			return redirect()->back()->withErrors($validator)->withInput();
@@ -47,16 +48,17 @@ class UserController extends InitController
     			$TUsers->email= $request->input("email");
                 $TUsers->phone = $request->input("phone");
                 $TUsers->address= $request->input("address");
-                $TUsers->role = "1";
+                $TUsers->role = $request->input("cid_role");
     			$TUsers->password=bcrypt($request->input("password"));
 
     			$TUsers->save();
 
-    			$request->session()->flash("success","Thêm mới người dùng thành công.");
+    			$request->session()->flash("success","Add user success.");
     			return redirect()->back();
 
     		}
-    	}
+        }
+        $this->View['cid_role'] = DTRoleName::where('status','1')->pluck('name', 'id');
     	$this->View['data']=$data;
     	return view('admin.users.add', $this->View);
     }
@@ -82,16 +84,18 @@ class UserController extends InitController
                 "username"=>"required|max:225|unique:users,username,{$id},id",
                 "password"=>"required|confirmed|min:6",
             ],[
-                "name.required"=>"Vui lòng nhập tên.",
-                "name.max"=>"Vượt quá ký tự giới hạn",
-                "email.required"=>" Vui lòng nhập Email",
-                "email.email"=>"Vui lòng nhập đúng định dạng Email",
-                "email.unique"=>"Email đã tồn tại",
-                "phone.required"=>"Vui lòng số điện thoại",
-                "username.required"=>"Vui lòng nhập tên đăng nhập",
-                "username.unique"=>"Tên đăng nhập đã tồn tại ",
-                "password.required" => "Không được bỏ trống mật khẩu",
-                "password.confirmed"=>"Nhập lại mật khẩu không chính xác"
+                "name.required"=>"Please input full name",
+                "name.max"=>"Exceeds the character limit",
+                "email.required"=>"Please input email",
+                "email.email"=>"Please enter the correct format Email",
+                "email.unique"=>"Email already exist",
+                "phone.required"=>"Please input Phone",
+                "username.required"=>"Please user name login",
+                "username.unique"=>"User name already exist",
+                "password.required"=>"Please input password",
+                "password.min"=>"Password is not less than 6 characters",
+
+                "password.confirmed"=>"Re password incorrect"
             ]);
             if($validator->fails()){
                 return redirect()->back()->withErrors($validator)->withInput();
@@ -106,6 +110,7 @@ class UserController extends InitController
                 $TUPdated->address=$request->input("address");
                 $TUPdated->username=$request->input("username");
                 $TUPdated->status=$request->input("status");
+                $TUPdated->role = $request->input("cid_role");
 
                 $password = $request->input("password");
 
@@ -115,12 +120,14 @@ class UserController extends InitController
 
                 $TUPdated->save();
 
-                $request->session()->flash("success"," Bạn đã cập nhật thành công. ");
+                $request->session()->flash("success"," Update success. ");
                 return redirect()->back();
             }
         }
 
         $data = DTUsers::find($id);
+
+        $this->View['cid_role'] = DTRoleName::where('status','1')->pluck('name', 'id');
 
         $this->View['data']=$data;
 

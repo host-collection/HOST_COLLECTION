@@ -44,3 +44,15 @@
  padding: 5px;
  height: 100%;
 }
+
+.forms .select2-container .select2-selection--single {
+    width: 100%;
+}
+
+.forms .selection {
+    width: 100%;
+}
+
+.forms .selection span{
+    padding-top: 2px;
+}
