@@ -1,0 +1,294 @@
+/*
+ * jQuery Nivo Slider v3.2
+ * http://nivo.dev7studios.com
+ *
+ * Copyright 2012, Dev7studios
+ * Free to use and abuse under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+ 
+#flexslider {
+    position: relative;
+}
+ 
+/* The Nivo Slider styles */
+.nivoSlider {
+	position:relative;
+	height:auto;
+	margin: 0 87px;
+	z-index: 9;
+}
+.nivoSlider::after{
+	content: "";
+    display: block;
+    left: -10px;
+    right: -10px;
+    top: 0;
+    position: absolute;
+    border-right: 10px solid #efb311;
+    bottom: 80px;
+    border-left: 10px solid #efb311;
+    z-index: 0;
+}
+.nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+	max-width: none;
+}
+.nivo-main-image {
+	display: block !important;
+	position: relative !important; 
+	width: 100% !important;
+}
+
+/* If an image is wrapped in a link */
+.nivoSlider a.nivo-imageLink {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	border:0;
+	padding:0;
+	margin:0;
+	z-index:6;
+	display:none;
+	background:white; 
+	filter:alpha(opacity=0); 
+	opacity:0;
+}
+/* The slices and boxes in the Slider */
+.nivo-slice {
+	display:block;
+	position:absolute;
+	z-index:5;
+	height:100%;
+	top:0;
+}
+.nivo-box {
+	display:block;
+	position:absolute;
+	z-index:5;
+	overflow:hidden;
+}
+.nivo-box img { display:block; }
+
+/* Caption styles */
+.nivo-caption {
+	position:absolute;
+	left:0px;
+	bottom:0px;
+	background:#000;
+	color:#fff;
+	width:100%;
+	z-index:8;
+	padding: 5px 10px;
+	opacity: 0.8;
+	overflow: hidden;
+	display: none;
+	-moz-opacity: 0.8;
+	filter:alpha(opacity=8);
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+.nivo-caption p {
+	padding:5px;
+	margin:0;
+}
+.nivo-caption a {
+	display:inline !important;
+}
+.nivo-html-caption {
+    display:none;
+}
+/* Direction nav styles (e.g. Next & Prev) */
+.nivo-directionNav a {
+	position:absolute;
+	top:45%;
+	z-index:9;
+	cursor:pointer;
+	width: 35px;
+	height: 35px;
+	font-size: 0;
+	border:1px solid #333333;
+	opacity: 0;
+	-webkit-opacity: 0;
+	-moz-opacity: 0;
+	-o-opacity: 0;
+	-ms-opacity: 0;
+	border-radius: 25px;
+	-webkit-border-radius:25px;
+	-o-border-radius:25px;
+	-moz-border-radius:25px;
+}
+.nivo-directionNav a:hover{border-color:#f1c40f;}
+.nivo-prevNav {
+	left:0px;
+}
+.nivo-nextNav {
+	right:0px;
+}
+
+
+.nivo-prevNav {
+	left: 50px;
+	background:url("../img/back.svg") no-repeat scroll center center / 15px auto ;
+	display: block;
+}
+.nivo-nextNav {
+	background: url("../img/next.svg") no-repeat scroll center center / 15px auto;
+	right: 50px;
+}
+
+.flexslider:hover .nivo-prevNav, .flexslider:hover .nivo-nextNav{	
+	opacity: 1;
+	-webkit-opacity: 1;
+	-moz-opacity: 1;
+	-o-opacity: 1;
+	-ms-opacity: 1;
+}
+.nivo-nextNav:hover {
+	background-image: url("../img/next-h.svg");
+}
+
+.nivo-prevNav:hover {
+	background-image: url("../img/back-h.svg");
+}
+
+
+/* Control nav styles (e.g. 1,2,3...) */
+.nivo-controlNav {
+    border: 0 none;
+    bottom: 40px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+	left:0;
+	z-index:99;
+}
+#flexslider .nivo-controlNav {
+    display: none;
+}
+.nivo-controlNav a{
+    cursor: pointer;
+	font-size:0;
+    display: inline-block;
+    height: 10px;
+    margin: 0 5px;
+    width: 10px;
+	background:#fff;
+	position:relative;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-o-border-radius: 50%;
+	-ms-border-radius: 50%;
+}
+.nivo-controlNav a.active, .nivo-controlNav a:hover{
+    background: #f1c40f none repeat scroll 0 0;
+	 transition: all 0.45s ease 0s;
+	-webkit-transition: all 0.45s ease 0s;
+	-moz-transition: all 0.45s ease 0s;
+	-o-transition: all 0.45s ease 0s;
+}
+
+.theme-default .nivoSlider {
+	position:relative;
+    margin-bottom:10px;
+    -webkit-box-shadow: 0px 1px 5px 0px #4a4a4a;
+         -moz-box-shadow: 0px 1px 5px 0px #4a4a4a;
+    box-shadow: 0px 1px 5px 0px #4a4a4a;
+}
+.theme-default .nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:none;
+}
+.theme-default .nivoSlider a {
+	border:0;
+	display:block;
+}
+
+.theme-default .nivo-controlNav {
+	text-align: center;
+	padding: 20px 0;
+}
+.theme-default .nivo-controlNav a {
+	display:inline-block;
+	width:22px;
+	height:22px;
+	text-indent:-9999px;
+	border:0;
+	margin: 0 2px;
+}
+.theme-default .nivo-controlNav a.active {
+	background-position:0 -22px;
+}
+/*
+.nivo-controlNav a:before {
+    border: 2px solid #232b3a;
+    bottom: -4px;
+    content: "";
+    left: -4px;
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    transition: all 0.45s ease 0s;
+	-webkit-transition: all 0.45s ease 0s;
+	-moz-transition: all 0.45s ease 0s;
+	-o-transition: all 0.45s ease 0s;
+}
+.nivo-controlNav a:hover::before, .nivo-controlNav a.active::before{border-color:#f9b920; 
+	 transition: all 0.45s ease 0s;
+	-webkit-transition: all 0.45s ease 0s;
+	-moz-transition: all 0.45s ease 0s;
+	-o-transition: all 0.45s ease 0s;}*/
+.theme-default .nivo-directionNav a {
+	display:block;
+	width:30px;
+	height:30px;
+	text-indent:-9999px;
+	border:0;
+	opacity: 0;
+	-webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+.theme-default:hover .nivo-directionNav a { opacity: 1; }
+.theme-default a.nivo-nextNav {
+	background-position:-30px 0;
+	right:15px;
+}
+.theme-default a.nivo-prevNav {
+	left:15px;
+}
+
+.theme-default .nivo-caption {
+    font-family: Helvetica, Arial, sans-serif;
+}
+.theme-default .nivo-caption a {
+    color:#fff;
+    border-bottom:1px dotted #fff;
+}
+.theme-default .nivo-caption a:hover {
+    color:#fff;
+}
+
+.theme-default .nivo-controlNav.nivo-thumbs-enabled {
+	width: 100%;
+}
+.theme-default .nivo-controlNav.nivo-thumbs-enabled a {
+	width: auto;
+	height: auto;
+	background: none;
+	margin-bottom: 5px;
+}
+.theme-default .nivo-controlNav.nivo-thumbs-enabled img {
+	display: block;
+	width: 120px;
+	height: auto;
+}
