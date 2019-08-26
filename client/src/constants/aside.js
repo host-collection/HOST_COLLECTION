@@ -1,0 +1,10 @@
+export const WELCOME_TO = 'Welcome to';
+export const LOGIN = 'Login';
+export const OK = 'OK';
+export const HOME = 'Home';
+export const MY_PAGE = 'My page';
+export const FAVORITE = 'Favorite';
+export const SEARCH = 'Search';
+export const CONTENTS = 'CONTENT';
+export const PROMOTION = 'PROMOTION';
+export const SELECT_THE_AREA = 'Select the area';
