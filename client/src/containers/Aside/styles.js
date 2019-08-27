@@ -7,6 +7,24 @@ const styles = (theme) => ({
     position: 'fixed',
     left: 0,
     top: 0,
+    overflowY: 'overlay',
+    '&::-webkit-scrollbar': {
+      width: 0,
+    },
+    '&::-webkit-scrollbar-track': {
+      background: '#ccc',
+    },
+    '&::-webkit-scrollbar-thumb': {
+      background: 'rgba(255,0,0,0)!important'
+    },
+    '&:hover': {
+      '&::-webkit-scrollbar-thumb': {
+        background: '#aaa!important',
+      },
+      '&::-webkit-scrollbar': {
+        width: 7,
+      }
+    }
   },
   logo: {
     display: 'block',

@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import styles from './styles';
 import logo from '../../assets/images/logo.png';
-import { SelectArea, Welcome, MainMenu } from '../../components/AsideComponent';
+import {
+  SelectArea, Welcome, MainMenu, ContentsMenu
+} from '../../components/AsideComponent';
 
 const Aside = (props) => {
   const { classes } = props;
@@ -20,6 +22,7 @@ const Aside = (props) => {
       <Welcome />
       <SelectArea />
       <MainMenu />
+      <ContentsMenu />
     </div>
   );
 };

@@ -14,7 +14,7 @@ const mainMenu = [
     name: titleContants.HOME,
     icon: <FiHome />,
     to: "/",
-    exact: false
+    exact: true
   },
   {
     id: 2,
@@ -47,7 +47,7 @@ function MainMenu(props) {
       result = mainMenu.map(menu => {
         return (
           <NavLink
-            key={menu.id}
+            key={`${menu.name}-${menu.id}`}
             className={classes.mainLink}
             to={menu.to}
             exact={menu.exact}

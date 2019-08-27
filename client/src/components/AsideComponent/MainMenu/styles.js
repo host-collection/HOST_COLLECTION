@@ -19,6 +19,10 @@ const styles = (theme) => ({
     '&:hover': {
       background: theme.color.primary,
       color: 'white',
+    },
+    '&.active': {
+      background: theme.color.primary,
+      color: 'white'
     }
   },
   icon: {
