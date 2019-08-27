@@ -91,3 +91,10 @@ h5 {
 h6 {
   font-size: 0.85em;
 }
+
+button, p, label {
+  font-family: "SF Display"!important;
+}
+button {
+  transition: .3s!important
+}

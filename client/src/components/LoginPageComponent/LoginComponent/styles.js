@@ -42,8 +42,26 @@ const styles = (theme) => ({
   },
   divField: {
     display: 'flex',
-    marginTop: 15,
-    marginBottom: 30
+    marginBottom: 30,
+    position: 'relative',
+  },
+  showPassword: {
+    position: 'absolute',
+    top: 15,
+    right: 15,
+    cursor: 'pointer',
+    border: 0,
+    background: 'none',
+    '& svg': {
+      fontSize: 20,
+      color: theme.color.color4
+    },
+    '&:focus': {
+      outline: 'none'
+    },
+    '&:hover svg': {
+      color: theme.color.primary
+    }
   },
   icon: {
     width: 50,
@@ -110,16 +128,63 @@ const styles = (theme) => ({
       textAlign: 'center',
       position: 'relative',
       '&::before': {
-        content: "0",
-        width: 100,
-        height: '1',
+        content: "attr(href)",
+        width: '100%',
+        height: 1,
         background: '#e1e1e1',
         position: 'absolute',
         top: '50%',
         left: 0,
         transform: 'translateY(-50%)',
-        pointerEvents: 'none'
+      },
+      '& span': {
+        padding: '0 10px',
+        position: 'relative',
+        zIndex: 1,
+        color: theme.color.color6,
+        background: 'white'
       }
+    },
+    '& i': {
+      color: theme.color.color6,
+      display: 'block',
+      textAlign: 'center',
+      marginTop: 5
+    }
+  },
+  socialBtnBox: {
+    '& button': {
+      width: '100%',
+      height: 50,
+      borderRadius: 5,
+      position: 'relative',
+      textAlign: 'center',
+      marginTop: 20,
+      color: 'white',
+      '&:hover': {
+        filter: 'brightness(.9)',
+        boxShadow: '0 3px 10px rgba(0, 0, 0, .5)',
+        transform: 'translateY(-3px)'
+      }
+    },
+    '& img': {
+      width: 20,
+      height: 20,
+      position: 'absolute',
+      left: 15,
+      top: 15
+    }
+  },
+  amebaBtn: {
+    background: '#2d8c3c',
+    '&:hover': {
+      background: '#2d8c3c'
+    }
+  },
+  googleBtn: {
+    background: '#dd4b39',
+    '&:hover': {
+      background: '#dd4b39'
     }
   }
 });

@@ -8,7 +8,6 @@ const styles = () => ({
     padding: 30,
     paddingTop: 15,
     marginLeft: 220,
-    height: 5000
   }
 });
 

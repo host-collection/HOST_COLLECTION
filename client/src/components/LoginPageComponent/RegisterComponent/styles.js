@@ -34,10 +34,41 @@ const styles = (theme) => ({
     left: 0,
     top: 0,
     transform: 'translateX(-100%)',
-    transition: '.5s'
+    transition: '.5s',
+    padding: 30,
+    '& h3': {
+      textAlign: 'center'
+    }
   },
   active: {
     transform: 'none',
+  },
+  divField: {
+    position: 'relative',
+  },
+  showPassword: {
+    position: 'absolute',
+    top: 35,
+    right: 15,
+    cursor: 'pointer',
+    border: 0,
+    background: 'none',
+    '& svg': {
+      fontSize: 20,
+      color: theme.color.color4
+    },
+    '&:focus': {
+      outline: 'none'
+    },
+    '&:hover svg': {
+      color: theme.color.primary
+    }
+  },
+  registerBtn: {
+    width: '100%',
+    textTransform: 'uppercase',
+    marginTop: 15,
+    background: theme.color.primary
   }
 });
 
