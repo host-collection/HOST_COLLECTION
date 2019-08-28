@@ -5,7 +5,7 @@ import { Field, reduxForm } from "redux-form";
 import { FormControl, Select } from "@material-ui/core";
 import { compose } from "redux";
 import styles from "./styles";
-import * as titleContant from "../../../constants/aside";
+import * as titleContant from "../../../constants/ui/aside";
 
 const renderSelectField = ({
   classes,
@@ -38,7 +38,24 @@ renderSelectField.propTypes = {
 };
 
 function SelectArea(props) {
-  const { classes } = props;
+  const { classes, locations } = props;
+
+  const renderLocation = locations => {
+    let result = null;
+    if (locations.length > 0) {
+      const locationsFiltered = locations.filter(location => {
+        return location.cid_location_parent === "0";
+      });
+      result = locationsFiltered.map(location => {
+        return (
+          <option key={`location-${location.id}`} value={location.alias}>
+            { location.name }
+          </option>
+        );
+      });
+    }
+    return result;
+  };
 
   return (
     <div className={classes.selectArea}>
@@ -50,9 +67,10 @@ function SelectArea(props) {
           label="Area"
         >
           <option value={0}>{titleContant.SELECT_THE_AREA}</option>
-          <option value={1}>Tokyo</option>
+          {renderLocation(locations)}
+          {/* <option value={1}>Tokyo</option>
           <option value={2}>Hiroshima</option>
-          <option value={3}>Nawasaki</option>
+          <option value={3}>Nawasaki</option> */}
         </Field>
       </form>
     </div>
@@ -60,7 +78,8 @@ function SelectArea(props) {
 }
 
 SelectArea.propTypes = {
-  classes: PropTypes.object
+  classes: PropTypes.object,
+  locations: PropTypes.array
 };
 
 const withReduxForm = reduxForm({

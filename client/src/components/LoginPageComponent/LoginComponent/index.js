@@ -8,7 +8,7 @@ import { compose } from "redux";
 import { reduxForm, Field } from "redux-form";
 import { NavLink } from "react-router-dom";
 import renderTextField from "../../FormHelper/TextField";
-import * as titleConstants from "../../../constants/login";
+import * as titleConstants from "../../../constants/ui/login";
 import validate from "./validate";
 import amebaLogo from '../../../assets/images/ameba.png';
 import googleLogo from '../../../assets/images/google.png';

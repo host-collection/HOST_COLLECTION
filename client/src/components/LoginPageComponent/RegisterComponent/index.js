@@ -8,7 +8,7 @@ import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import renderTextField from "../../FormHelper/TextField";
 import validate from "./validate";
 import styles from "./styles";
-import * as titleConstants from "../../../constants/login";
+import * as titleConstants from "../../../constants/ui/login";
 
 function RegisterComponent(props) {
   const [showPassword, setShowPassword] = useState(false);

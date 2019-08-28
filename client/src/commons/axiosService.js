@@ -11,12 +11,12 @@ class AxiosService {
 
   handleError = (error) => Promise.reject(error);
 
-  get(url) {
-    return this.instance.get(url);
+  get(url, config) {
+    return this.instance.get(url, config);
   }
 
-  post(url, body) {
-    return this.instance.post(url, body);
+  post(url, body, ...rest) {
+    return this.instance.post(url, body, ...rest);
   }
 }
 

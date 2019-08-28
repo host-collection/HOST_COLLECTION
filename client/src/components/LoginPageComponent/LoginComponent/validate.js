@@ -1,4 +1,4 @@
-import * as titleConstants from '../../../constants/login';
+import * as titleConstants from '../../../constants/ui/login';
 
 const validate = values => {
   const errors = {};

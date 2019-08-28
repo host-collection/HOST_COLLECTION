@@ -1,4 +1,4 @@
-import * as uiTypes from '../constants/ui';
+import * as uiTypes from '../constants/events/loading';
 
 export const showLoading = () => ({
   type: uiTypes.SHOW_LOADING

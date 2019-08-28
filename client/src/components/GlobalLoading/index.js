@@ -3,9 +3,9 @@ import { withStyles } from "@material-ui/styles";
 import PropTypes from "prop-types";
 import { bindActionCreators, compose } from "redux";
 import { connect } from "react-redux";
+import CircularProgress from '@material-ui/core/CircularProgress';
 import styles from "./styles";
-import LoadingIcon from "../../assets/images/loading.gif";
-import * as uiActions from "../../actions/ui";
+import * as uiActions from "../../actions/loading";
 
 class GlobalLoading extends React.Component {
   render() {
@@ -16,7 +16,7 @@ class GlobalLoading extends React.Component {
     if (showLoading) {
       result = (
         <div className={classes.wrapper}>
-          <img className={classes.icon} src={LoadingIcon} alt="Loading..." />
+          <CircularProgress className={classes.icon} />
         </div>
       );
     }
@@ -32,7 +32,7 @@ GlobalLoading.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    showLoading: state.ui.showLoading
+    showLoading: state.loading.showLoading
   };
 };
 

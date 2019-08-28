@@ -6,7 +6,7 @@ import {
 } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 import styles from "./styles";
-import * as titleContants from "../../../constants/aside";
+import * as titleContants from "../../../constants/ui/aside";
 
 const mainMenu = [
   {

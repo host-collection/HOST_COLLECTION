@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
-import uiReducer from './ui';
+import loadingReducer from './loading';
+import generalReducer from './general';
 
 const rootReducer = combineReducers({
-  ui: uiReducer,
-  form: formReducer
+  loading: loadingReducer,
+  form: formReducer,
+  general: generalReducer
 });
 
 export default rootReducer;

@@ -1,20 +1,17 @@
-const styles = (theme) => ({
-  welcome: {
-    display: 'flex',
-    padding: '2px 10px',
-    background: theme.color.color2,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    color: theme.color.color6
-  },
-  loginBtn: {
-    fontSize: 14,
-    textAlign: 'center',
-    '& h6': {
-      marginTop: -5
+const styles = () => ({
+  bannerAside: {
+    padding: 10,
+    '& a': {
+      display: 'flex',
+      overflow: 'hidden',
+      marginBottom: 8,
     },
-    '&:hover': {
-      color: 'black'
+    '& img': {
+      borderRadius: 3,
+      transition: '.3s',
+      '&:hover': {
+        transform: 'scale(1.2)'
+      }
     }
   }
 });

@@ -15,7 +15,7 @@ import {
 } from "react-icons/fa";
 import { IoMdGift, IoMdDisc } from 'react-icons/io';
 import styles from './styles';
-import * as titleContant from '../../../constants/aside';
+import * as titleContant from '../../../constants/ui/aside';
 
 const menus = [
   {

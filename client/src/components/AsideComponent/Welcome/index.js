@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/styles';
 import { IoIosLogIn } from "react-icons/io";
 import PropTypes from 'prop-types';
 import styles from './styles';
-import * as titleContant from '../../../constants/aside';
+import * as titleContant from '../../../constants/ui/aside';
 
 function Welcome(props) {
   const { classes } = props;
