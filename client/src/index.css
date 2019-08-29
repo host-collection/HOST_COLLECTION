@@ -1,13 +1,100 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: "SF Display";
+  font-weight: 400;
+  src: url("./assets/fonts/SF-Pro-Display-Regular.otf");
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+@font-face {
+  font-family: "SF Display";
+  font-weight: 500;
+  src: url("./assets/fonts/SF-Pro-Display-Medium.otf");
+}
+
+@font-face {
+  font-family: "SF Display";
+  font-weight: bold;
+  src: url("./assets/fonts/SF-Pro-Display-Semibold.otf");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "SF Display";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: black;
+  margin: 0;
+  overflow-x: hidden;
+  font-weight: 400;
+  font-size: 14px;
+  background: white;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+  font-weight: 400;
+  color: inherit;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  border: none;
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+  margin: 0;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 2.1em;
+}
+
+h2 {
+  font-size: 1.75em;
+}
+
+h3 {
+  font-size: 1.4em
+}
+
+h4 {
+  font-size: 1.15em;
+}
+
+h5 {
+  font-size: 1em;
+}
+
+h6 {
+  font-size: 0.85em;
+}
+
+button, p, label {
+  font-family: "SF Display"!important;
+}
+button {
+  transition: .3s!important
 }

@@ -1,0 +1,19 @@
+export const LOGIN_FORM_NAME = 'Login';
+export const REGISTER_FORM_NAME = 'Register';
+export const EMAIL_ADDRESS = 'Email address';
+export const PASSWORD = 'Password';
+export const RETYPE_PASSWORD = 'Retype password';
+export const LOGIN_BUTTON = 'LOGIN';
+export const FORGOTTE_PASSWORD = 'Forgotten password?';
+export const OR = 'Or';
+export const JUST_MEMBER = '(Just member)';
+export const EMAIL_DOES_NOT_EXIST = 'Email does not exist';
+export const WRONG_PASSWORD = 'Wrong password. Try again or click Forgot password to reset it.';
+export const ENTER_YOUR_EMAIL = 'Please enter your email';
+export const ENTER_YOUR_PASSWORD = 'Please enter your password';
+export const RETYPE_YOUR_PASSWORD = 'Please retype your password';
+export const INVALID_EMAIL = 'Invalid email address';
+
+export const QUICK_REGISTER = 'Quick register';
+export const MORE_THAN_6 = 'Please enter more than 6 character';
+export const MUST_SAME = 'Passwords do not match';
