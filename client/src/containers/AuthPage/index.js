@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { withStyles } from '@material-ui/styles';
 import PropTypes from 'prop-types';
 import styles from './styles';
-import { LoginComponent, RegisterComponent } from '../../components/LoginPageComponent';
+import { LoginComponent, RegisterComponent } from '../../components/AuthComponent';
 
 function LoginPage(props) {
   const { classes } = props;

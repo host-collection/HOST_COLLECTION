@@ -12,7 +12,7 @@ const styles = (theme) => ({
     color: theme.color.color4,
     borderRadius: 3,
     marginBottom: 3,
-    padding: '5px 10px 2px 10px',
+    padding: '5px 10px',
     display: 'flex',
     alignItems: 'center',
     fontSize: 16,

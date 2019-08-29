@@ -2,7 +2,7 @@ import React from 'react';
 
 import NotFoundPage from './containers/NotFoundPage';
 import Homepage from './containers/Homepage';
-import LoginPage from './containers/LoginPage';
+import AuthPage from './containers/AuthPage';
 import MyPage from './containers/MyPage';
 import FavoritePage from './containers/FavoritePage';
 import SearchPage from './containers/SearchPage';
@@ -18,7 +18,7 @@ const routes = [
     id: 2,
     path: '/login',
     exact: false,
-    main: () => <LoginPage />
+    main: () => <AuthPage />
   },
   {
     id: 3,

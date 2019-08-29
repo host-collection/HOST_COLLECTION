@@ -1,4 +1,5 @@
 export const API_ENDPOINT = 'http://52.196.231.30';
+export const IMAGE_BASE_URL = 'http://52.196.231.30/upload';
 
 export const STATUS_CODE = {
   SUCCESS: 200,

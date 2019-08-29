@@ -1,7 +1,8 @@
 const styles = (theme) => ({
   selectArea: {
     padding: '0 10px',
-    margin: '20px 0'
+    margin: '20px 0',
+    position: 'relative'
   },
   selectForm: {
     background: theme.color.color6,

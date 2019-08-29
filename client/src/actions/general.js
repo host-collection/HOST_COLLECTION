@@ -1,4 +1,3 @@
-import * as generalApis from '../apis/general';
 import * as generalConstants from '../constants/events/general';
 
 export const fetchLocation = () => ({
@@ -15,16 +14,30 @@ export const fetchLocationFailed = error => ({
   payload: { error }
 });
 
-export const fetchLocationRequest = () => {
-  return dispatch => {
-    dispatch(fetchLocation());
-    generalApis
-      .getLocation()
-      .then(res => {
-        dispatch(fetchLocationSuccess(res.data));
-      })
-      .catch(err => {
-        dispatch(fetchLocationFailed(err));
-      });
-  };
-};
+export const fetchBannerAside = () => ({
+  type: generalConstants.FETCH_BANNER_ASIDE
+});
+
+export const fetchBannerAsideSuccess = data => ({
+  type: generalConstants.FETCH_BANNER_ASIDE_SUCCESS,
+  payload: { data }
+});
+
+export const fetchBannerAsideFailed = error => ({
+  type: generalConstants.FETCH_BANNER_ASIDE_FAILED,
+  payload: { error }
+});
+
+export const fetchGeneralInfo = () => ({
+  type: generalConstants.FETCH_GENERAL_INFORMATION
+});
+
+export const fetchGeneralInfoSuccess = data => ({
+  type: generalConstants.FETCH_GENERAL_INFORMATION_SUCCESS,
+  payload: { data }
+});
+
+export const fetchGeneralInfoFailed = (error) => ({
+  type: generalConstants.FETCH_GENERAL_INFORMATION_FAILED,
+  payload: { error }
+});

@@ -1,6 +1,6 @@
 export const WELCOME_TO = 'Welcome to';
 export const LOGIN = 'Login';
-export const OK = 'OK';
+export const MENU = 'MENU';
 export const HOME = 'Home';
 export const MY_PAGE = 'My page';
 export const FAVORITE = 'Favorite';
@@ -14,9 +14,12 @@ export const INFORMATION = 'INFORMATION';
 export const BIRTHDAY = 'BIRTHDAY';
 export const SHOP_LIST = 'SHOP LIST';
 export const COUPON = 'COUPON';
-export const RECRUITMENT = 'RECRUITMENT';
+export const RECRUITMENT = 'RECRUIT';
 export const VR = 'VR';
 export const CD_DVD = 'CD&DVD';
 export const EVENT = 'EVENT';
 export const VIDEO = 'VIDEO';
 export const MANGA = 'MANGA';
+
+export const FETCH_LOCATION_FAILED_MESSAGE = 'Fetch locations error!';
+export const FETCH_BANNER_ASIDE_FAILED_MESSAGE = 'Fetch Banner aside error!';

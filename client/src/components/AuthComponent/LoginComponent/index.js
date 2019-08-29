@@ -4,9 +4,12 @@ import { Button } from "@material-ui/core";
 import { AccountCircle, Lock } from "@material-ui/icons";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import PropTypes from "prop-types";
-import { compose } from "redux";
+import { compose, bindActionCreators } from "redux";
+import { connect } from 'react-redux';
+import bcrypt from 'bcryptjs';
 import { reduxForm, Field } from "redux-form";
 import { NavLink } from "react-router-dom";
+import * as authAction from '../../../actions/auth';
 import renderTextField from "../../FormHelper/TextField";
 import * as titleConstants from "../../../constants/ui/login";
 import validate from "./validate";
@@ -25,8 +28,18 @@ function LoginComponent(props) {
     setShowPassword(!showPassword);
   };
 
-  const onLogin = data => {
-    console.log(data);
+  const onLogin = async data => {
+    const { email, password } = data;
+    const { authActionCreators, userSearched } = props;
+    const { compareUser } = authActionCreators;
+    console.log(userSearched.data);
+    compareUser(email);
+    const match = await bcrypt.compare(password, '$2y$10$VJW7hU73l.RgR9qkd0x5euosXCT8AWmbvN7o8R3EX.yrMJHZHR3RS');
+    if (match) {
+      // console.log('match');
+    } else {
+      // console.log('tạch');
+    }
   };
 
   return (
@@ -114,8 +127,29 @@ LoginComponent.propTypes = {
   onChangeRegister: PropTypes.func,
   status: PropTypes.bool,
   handleSubmit: PropTypes.func,
-  submitting: PropTypes.bool
+  submitting: PropTypes.bool,
+  userSearched: PropTypes.any,
+  authActionCreators: PropTypes.shape({
+    compareUser: PropTypes.func
+  })
 };
+
+const mapStateToProps = state => {
+  return {
+    userSearched: state.auth.userSearched
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    authActionCreators: bindActionCreators(authAction, dispatch)
+  };
+};
+
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps
+);
 
 const withReduxForm = reduxForm({
   form: titleConstants.LOGIN_FORM_NAME,
@@ -124,5 +158,6 @@ const withReduxForm = reduxForm({
 
 export default compose(
   withStyles(styles),
-  withReduxForm
+  withReduxForm,
+  withConnect
 )(LoginComponent);

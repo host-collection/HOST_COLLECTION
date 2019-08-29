@@ -2,19 +2,27 @@
 import { withStyles } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/styles';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import React from 'react';
+import React, { useState } from 'react';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 import theme from "../../commons/Theme";
 import configureStore from '../../redux/configureStore';
 import styles from './styles';
-import GlobalLoading from '../../components/GlobalLoading';
 import Aside from '../Aside';
 import routes from '../../routes';
+import { MobileHeader } from '../../components/AsideComponent';
+import OverlayHelper from '../../commons/OverlayHelper';
+import GlobalLoading from '../../components/GlobalLoading';
 
 const store = configureStore();
 
 function App(props) {
+  const [showAside, setShowAside] = useState(false);
+
+  const onShowAside = () => {
+    setShowAside(true);
+  };
+
   const showContentMenus = (routes) => {
     let result = null;
 
@@ -42,7 +50,15 @@ function App(props) {
         <Router>
           <GlobalLoading />
           <div className={classes.wrapper}>
-            <Aside />
+            <OverlayHelper
+              closeMenu={() => setShowAside(false)}
+              active={showAside}
+            />
+            <Aside
+              showAside={showAside}
+              onHiddenAside={() => setShowAside(false)}
+            />
+            <MobileHeader onShowAside={onShowAside} />
             <div className={classes.article}>
               { showContentMenus(routes) }
             </div>

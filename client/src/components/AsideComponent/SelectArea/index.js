@@ -68,9 +68,6 @@ function SelectArea(props) {
         >
           <option value={0}>{titleContant.SELECT_THE_AREA}</option>
           {renderLocation(locations)}
-          {/* <option value={1}>Tokyo</option>
-          <option value={2}>Hiroshima</option>
-          <option value={3}>Nawasaki</option> */}
         </Field>
       </form>
     </div>

@@ -10,31 +10,47 @@ import lineLogo from '../../../assets/images/line.png';
 import facebookLogo from '../../../assets/images/facebook.png';
 
 function PromotionAside(props) {
-  const { classes } = props;
+  const { classes, generalInfo } = props;
+
+  const renderGeneralInfo = () => {
+    let result = null;
+    if (generalInfo[0]) {
+      const { social, note } = generalInfo[0];
+      const socialParsed = generalInfo && JSON.parse(social);
+
+      result = (
+        <div>
+          <div className={classes.socialBox}>
+            <a target="_blank" rel="noopener" href={socialParsed.twitter}>
+              <img src={twitterLogo} alt="Twitter" />
+            </a>
+            <a target="_blank" rel="noopener" href={socialParsed.line}>
+              <img src={lineLogo} alt="LINE" />
+            </a>
+            <a target="_blank" rel="noopener" href={socialParsed.facebook}>
+              <img src={facebookLogo} alt="Facebook" />
+            </a>
+          </div>
+          <div className={classes.noteAside}>
+            { note }
+          </div>
+        </div>
+      );
+    }
+    return result;
+  };
 
   return (
     <div className={classes.promotionAside}>
       <h5>{titleConstants.PROMOTION}</h5>
-      <div className={classes.socialBox}>
-        <a target="_blank" rel="noopener" href="#">
-          <img src={twitterLogo} alt="Twitter" />
-        </a>
-        <a target="_blank" rel="noopener" href="#">
-          <img src={lineLogo} alt="LINE" />
-        </a>
-        <a target="_blank" rel="noopener" href="#">
-          <img src={facebookLogo} alt="Facebook" />
-        </a>
-      </div>
-      <div className={classes.noteAside}>
-        TOKYO IS AWESOME
-      </div>
+      { renderGeneralInfo() }
     </div>
   );
 }
 
 PromotionAside.propTypes = {
-  classes: PropTypes.object
+  classes: PropTypes.object,
+  generalInfo: PropTypes.array
 };
 
 export default withStyles(styles)(PromotionAside);

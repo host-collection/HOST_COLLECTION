@@ -4,6 +4,7 @@ import MainMenu from './MainMenu';
 import ContentsMenu from './ContentsMenu';
 import BannerAside from './BannerAside';
 import PromotionAside from './PromotionAside';
+import MobileHeader from './MobileHeader';
 
 export {
   SelectArea,
@@ -11,5 +12,6 @@ export {
   MainMenu,
   ContentsMenu,
   BannerAside,
-  PromotionAside
+  PromotionAside,
+  MobileHeader
 };

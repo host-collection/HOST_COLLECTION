@@ -5,9 +5,11 @@ const styles = (theme) => ({
     boxShadow: '4px 0px 3px rgba(0, 0, 0, .4)',
     height: '100vh',
     position: 'fixed',
+    zIndex: 1000,
     left: 0,
     top: 0,
     overflowY: 'overlay',
+    transition: '.3s',
     '&::-webkit-scrollbar': {
       width: 0,
     },
@@ -24,20 +26,13 @@ const styles = (theme) => ({
       '&::-webkit-scrollbar': {
         width: 7,
       }
-    }
+    },
+    [theme.breakpoints.down('sm')]: {
+      transform: 'translateX(-105%)',
+    },
   },
-  logo: {
-    display: 'block',
-    width: 160,
-    margin: '20px auto',
-  },
-  locationName: {
-    display: 'block',
-    height: 20,
-    lineHeight: '20px',
-    color: 'white',
-    background: theme.color.color6,
-    textAlign: 'center'
+  active: {
+    transform: 'none'
   }
 });
 

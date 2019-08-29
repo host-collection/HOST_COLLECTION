@@ -26,20 +26,6 @@ const menus = [
     exact: false
   },
   {
-    id: 2,
-    name: titleContant.INFORMATION,
-    icon: <FaInfoCircle />,
-    to: '/information',
-    exact: false
-  },
-  {
-    id: 3,
-    name: titleContant.BIRTHDAY,
-    icon: <FaBirthdayCake />,
-    to: '/birthday',
-    exact: false
-  },
-  {
     id: 4,
     name: titleContant.SHOP_LIST,
     icon: <FaStore />,
@@ -54,10 +40,24 @@ const menus = [
     exact: false
   },
   {
+    id: 3,
+    name: titleContant.BIRTHDAY,
+    icon: <FaBirthdayCake />,
+    to: '/birthday',
+    exact: false
+  },
+  {
     id: 6,
     name: titleContant.RECRUITMENT,
     icon: <FaMale />,
     to: '/recruitment',
+    exact: false
+  },
+  {
+    id: 2,
+    name: titleContant.INFORMATION,
+    icon: <FaInfoCircle />,
+    to: '/information',
     exact: false
   },
   {
@@ -98,7 +98,7 @@ const menus = [
 ];
 
 function ContentsMenu(props) {
-  const { classes } = props;
+  const { classes, mobile } = props;
 
   const showContentMenu = menus => {
     let result = null;
@@ -118,7 +118,7 @@ function ContentsMenu(props) {
   };
 
   return (
-    <div className={classes.contentsMenu}>
+    <div className={mobile ? classes.mobileContents : classes.contentsMenu}>
       <h5>{titleContant.CONTENTS}</h5>
       <ul>
         { showContentMenu(menus) }
@@ -128,7 +128,8 @@ function ContentsMenu(props) {
 }
 
 ContentsMenu.propTypes = {
-  classes: PropTypes.object
+  classes: PropTypes.object,
+  mobile: PropTypes.string
 };
 
 export default withStyles(styles)(ContentsMenu);

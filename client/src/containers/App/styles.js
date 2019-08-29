@@ -1,4 +1,4 @@
-const styles = () => ({
+const styles = (theme) => ({
   wrapper: {
     display: 'flex',
     flexWrap: 'wrap'
@@ -8,6 +8,12 @@ const styles = () => ({
     padding: 30,
     paddingTop: 15,
     marginLeft: 220,
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+      paddingTop: 60,
+      marginLeft: 0,
+      height: 5000
+    },
   },
   loadingComponent: {
     position: 'fixed',

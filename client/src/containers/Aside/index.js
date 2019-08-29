@@ -1,12 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { withStyles } from "@material-ui/styles";
 import PropTypes from "prop-types";
 import { compose, bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { NavLink } from "react-router-dom";
 import * as generalActions from "../../actions/general";
 import styles from "./styles";
-import logo from "../../assets/images/logo.png";
 import {
   SelectArea,
   Welcome,
@@ -16,38 +14,72 @@ import {
   PromotionAside
 } from "../../components/AsideComponent";
 
-const Aside = props => {
-  const { classes, locations } = props;
-
-  useEffect(() => {
-    const { generalActionCreators } = props;
-    const { fetchLocation } = generalActionCreators;
+class Aside extends React.Component {
+  componentDidMount() {
+    const { generalActionCreators } = this.props;
+    const {
+      fetchLocation,
+      fetchBannerAside,
+      fetchGeneralInfo
+    } = generalActionCreators;
     fetchLocation();
-  }, [props]);
+    fetchBannerAside();
+    fetchGeneralInfo();
+  }
 
-  return (
-    <div className={classes.aside}>
-      <NavLink to="/" exact={false}>
-        <img className={classes.logo} src={logo} alt="logo" />
-      </NavLink>
-      <h5 className={classes.locationName}>Tokyo</h5>
-      <Welcome />
-      <SelectArea locations={locations} />
-      <MainMenu />
-      <ContentsMenu />
-      <BannerAside />
-      <PromotionAside />
-    </div>
-  );
-};
+  fetchApi = () => {
+    const { generalActionCreators } = this.props;
+    const {
+      fetchLocation,
+      fetchBannerAside,
+      fetchGeneralInfo
+    } = generalActionCreators;
+    fetchLocation();
+    fetchBannerAside();
+    fetchGeneralInfo();
+  }
+
+  render() {
+    const {
+      classes,
+      locations,
+      banners,
+      generalInfo,
+      showAside,
+      onHiddenAside
+    } = this.props;
+    return (
+      <div className={`${classes.aside} ${showAside ? classes.active : ""}`}>
+        <button type="button" onClick={this.fetchApi}>Clik</button>
+        <Welcome onHiddenAside={onHiddenAside} />
+        <SelectArea locations={locations} />
+        <MainMenu />
+        <ContentsMenu />
+        <BannerAside banners={banners} />
+        <PromotionAside generalInfo={generalInfo} />
+      </div>
+    );
+  }
+}
 
 Aside.propTypes = {
   classes: PropTypes.object,
-  locations: PropTypes.array
+  locations: PropTypes.array,
+  banners: PropTypes.array,
+  generalInfo: PropTypes.array,
+  showAside: PropTypes.bool,
+  onHiddenAside: PropTypes.func,
+  generalActionCreators: PropTypes.shape({
+    fetchLocation: PropTypes.func,
+    fetchBannerAside: PropTypes.func,
+    fetchGeneralInfo: PropTypes.func
+  })
 };
 const mapStateToProps = state => {
   return {
-    locations: state.general.location
+    locations: state.general.locations,
+    banners: state.general.banners,
+    generalInfo: state.general.generalInfo
   };
 };
 

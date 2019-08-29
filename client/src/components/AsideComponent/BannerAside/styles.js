@@ -1,6 +1,7 @@
 const styles = () => ({
   bannerAside: {
     padding: 10,
+    position: 'relative',
     '& a': {
       display: 'flex',
       overflow: 'hidden',
