@@ -1,18 +1,19 @@
 /* eslint-disable no-shadow */
-import { withStyles } from '@material-ui/core';
-import { ThemeProvider } from '@material-ui/styles';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import React, { useState } from 'react';
-import { Provider } from 'react-redux';
-import PropTypes from 'prop-types';
+import { withStyles } from "@material-ui/core";
+import { ThemeProvider } from "@material-ui/styles";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, { useState } from "react";
+import { Provider } from "react-redux";
+import PropTypes from "prop-types";
 import theme from "../../commons/Theme";
-import configureStore from '../../redux/configureStore';
-import styles from './styles';
-import Aside from '../Aside';
-import routes from '../../routes';
-import { MobileHeader } from '../../components/AsideComponent';
-import OverlayHelper from '../../commons/OverlayHelper';
-import GlobalLoading from '../../components/GlobalLoading';
+import configureStore from "../../redux/configureStore";
+import styles from "./styles";
+import Aside from "../Aside";
+import routes from "../../routes";
+import { MobileHeader } from "../../components/AsideComponent";
+import OverlayHelper from "../../commons/OverlayHelper";
+import GlobalLoading from "../../components/GlobalLoading";
+import { PrivateRoute } from '../../commons/PrivateRouter';
 
 const store = configureStore();
 
@@ -23,18 +24,27 @@ function App(props) {
     setShowAside(true);
   };
 
-  const showContentMenus = (routes) => {
+  const showContentMenus = routes => {
     let result = null;
 
     if (routes.length > 0) {
-      result = routes.map((route) => {
+      result = routes.map(route => {
         return (
-          <Route
-            key={route.id}
-            path={route.path}
-            exact={route.exact}
-            component={route.main}
-          />
+          (route.private === true) ? (
+            <PrivateRoute
+              key={route.id}
+              path={route.path}
+              exact={route.exact}
+              component={route.main}
+            />
+          ) : (
+            <Route
+              key={route.id}
+              path={route.path}
+              exact={route.exact}
+              component={route.main}
+            />
+          )
         );
       });
     }
@@ -59,9 +69,7 @@ function App(props) {
               onHiddenAside={() => setShowAside(false)}
             />
             <MobileHeader onShowAside={onShowAside} />
-            <div className={classes.article}>
-              { showContentMenus(routes) }
-            </div>
+            <div className={classes.article}>{showContentMenus(routes)}</div>
           </div>
         </Router>
       </ThemeProvider>

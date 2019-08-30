@@ -2,12 +2,12 @@
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-export const mySwal = (message) => {
+export const mySwal = (message, position = 'top-right') => {
   const MySwal = withReactContent(Swal);
 
   const Toast = Swal.mixin({
     toast: true,
-    position: 'top-right',
+    position,
     showConfirmButton: false,
     timer: 3000
   });

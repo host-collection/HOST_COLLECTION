@@ -1,7 +1,8 @@
 import * as authConstants from '../constants/events/auth';
-
+import { mySwal as failedToast } from '../commons/AlertHelper';
 const initialState = {
-  userSearched: []
+  userId: '',
+  token: ''
 };
 
 const reducer = (state = initialState, action) => {
@@ -9,20 +10,40 @@ const reducer = (state = initialState, action) => {
     case authConstants.COMPARE_USER: {
       return {
         ...state,
-        // userSearched: []
+        userId: ''
       };
     }
     case authConstants.COMPARE_USER_SUCCESS: {
       const { data } = action.payload;
       return {
         ...state,
-        userSearched: data
+        userId: data
       };
     }
     case authConstants.COMPARE_USER_FAILED: {
       return {
         ...state,
-        // userSearched: []
+        userId: ''
+      };
+    }
+    case authConstants.LOGIN_TO_GET_TOKEN: {
+      return {
+        ...state,
+        token: ''
+      };
+    }
+    case authConstants.LOGIN_TO_GET_TOKEN_SUCCESS: {
+      const { data } = action.payload;
+      return {
+        ...state,
+        token: data.access_token
+      };
+    }
+    case authConstants.LOGIN_TO_GET_TOKEN_FAILED: {
+      failedToast('Email or password is wrong', 'top-center');
+      return {
+        ...state,
+        token: ''
       };
     }
     default:

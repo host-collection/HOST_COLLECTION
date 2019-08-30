@@ -1,9 +1,9 @@
 import {
-  fork, call, put, delay, take
+  fork, call, put, delay, take, takeEvery
 } from "redux-saga/effects";
 import { showLoading, hideLoading } from "../actions/loading";
 import { getLocation, getBannerAside, getGeneralInfo } from "../apis/general";
-import { searchUser } from '../apis/auth';
+import { searchUser, checkUser } from '../apis/auth';
 import * as generalConstants from "../constants/events/general";
 import * as authConstants from '../constants/events/auth';
 import { STATUS_CODE } from "../constants";
@@ -15,7 +15,7 @@ import {
   fetchGeneralInfoSuccess,
   fetchGeneralInfoFailed
 } from "../actions/general";
-import { compareUserSuccess } from '../actions/auth';
+import { compareUserSuccess, checkUserSuccess, checkUserFailed } from '../actions/auth';
 
 function* watchFetchLocationAction() {
   while (true) {
@@ -63,23 +63,48 @@ function* watchFetchGeneralInfoAction() {
   }
 }
 
-function* compareUserAction() {
-  while (true) {
-    const action = yield take(authConstants.COMPARE_USER);
+// function* compareUserAction() {
+//   while (true) {
+//     const action = yield take(authConstants.COMPARE_USER);
+//     const { params } = action.payload;
+//     const res = yield call(searchUser, params);
+//     const { data } = res;
+//     yield put(compareUserSuccess(data));
+//   }
+// }
+
+function* checkUserSaga({ payload }) {
+  try {
+    const { email, password, history } = payload;
     yield put(showLoading());
-    const { params } = action.payload;
-    const res = yield call(searchUser, params);
+    const res = yield call(checkUser, {
+      email,
+      password
+    });
     const { data } = res;
-    yield put(compareUserSuccess(data));
-    yield put(hideLoading());
+    if (data) {
+      const userInfo = yield call(searchUser, email);
+      if (userInfo.data[0]) {
+        const userId = userInfo.data[0].id;
+        yield put(compareUserSuccess(userId));
+        localStorage.setItem('userId', userId);
+      }
+      localStorage.setItem('token', data.access_token);
+      yield put(checkUserSuccess(data));
+      history.push('/');
+    }
+    yield delay(1000);
+  } catch (error) {
+    yield put(checkUserFailed(error));
   }
+  yield put(hideLoading());
 }
 
 function* rootSaga() {
   yield fork(watchFetchLocationAction);
   yield fork(watchFetchBannerAsideAction);
   yield fork(watchFetchGeneralInfoAction);
-  yield fork(compareUserAction);
+  yield takeEvery(authConstants.LOGIN_TO_GET_TOKEN, checkUserSaga);
 }
 
 export default rootSaga;

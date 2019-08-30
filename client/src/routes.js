@@ -12,37 +12,43 @@ const routes = [
     id: 1,
     path: '/',
     exact: true,
-    main: () => <Homepage />
+    main: () => <Homepage />,
+    private: false
   },
   {
     id: 2,
     path: '/login',
     exact: false,
-    main: () => <AuthPage />
+    main: ({ history }) => <AuthPage history={history} />,
+    private: false
   },
   {
     id: 3,
     path: '/my-page',
     exact: false,
-    main: () => <MyPage />
+    main: () => <MyPage />,
+    private: true
   },
   {
     id: 4,
     path: '/favorite',
     exact: false,
-    main: () => <FavoritePage />
+    main: () => <FavoritePage />,
+    private: true
   },
   {
     id: 5,
     path: '/search',
     exact: false,
-    main: () => <SearchPage />
+    main: () => <SearchPage />,
+    private: false
   },
   {
     id: 0,
     path: '',
     exact: false,
-    main: () => <NotFoundPage />
+    main: () => <NotFoundPage />,
+    private: false
   },
 ];
 

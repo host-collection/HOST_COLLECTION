@@ -1,5 +1,6 @@
 export const WELCOME_TO = 'Welcome to';
 export const LOGIN = 'Login';
+export const LOGOUT = 'Logout';
 export const MENU = 'MENU';
 export const HOME = 'Home';
 export const MY_PAGE = 'My page';

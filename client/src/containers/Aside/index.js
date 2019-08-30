@@ -27,18 +27,6 @@ class Aside extends React.Component {
     fetchGeneralInfo();
   }
 
-  fetchApi = () => {
-    const { generalActionCreators } = this.props;
-    const {
-      fetchLocation,
-      fetchBannerAside,
-      fetchGeneralInfo
-    } = generalActionCreators;
-    fetchLocation();
-    fetchBannerAside();
-    fetchGeneralInfo();
-  }
-
   render() {
     const {
       classes,
@@ -50,7 +38,6 @@ class Aside extends React.Component {
     } = this.props;
     return (
       <div className={`${classes.aside} ${showAside ? classes.active : ""}`}>
-        <button type="button" onClick={this.fetchApi}>Clik</button>
         <Welcome onHiddenAside={onHiddenAside} />
         <SelectArea locations={locations} />
         <MainMenu />

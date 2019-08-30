@@ -6,7 +6,6 @@ import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import PropTypes from "prop-types";
 import { compose, bindActionCreators } from "redux";
 import { connect } from 'react-redux';
-import bcrypt from 'bcryptjs';
 import { reduxForm, Field } from "redux-form";
 import { NavLink } from "react-router-dom";
 import * as authAction from '../../../actions/auth';
@@ -28,18 +27,11 @@ function LoginComponent(props) {
     setShowPassword(!showPassword);
   };
 
-  const onLogin = async data => {
+  const onLogin = data => {
     const { email, password } = data;
-    const { authActionCreators, userSearched } = props;
-    const { compareUser } = authActionCreators;
-    console.log(userSearched.data);
-    compareUser(email);
-    const match = await bcrypt.compare(password, '$2y$10$VJW7hU73l.RgR9qkd0x5euosXCT8AWmbvN7o8R3EX.yrMJHZHR3RS');
-    if (match) {
-      // console.log('match');
-    } else {
-      // console.log('tạch');
-    }
+    const { authActionCreators, history } = props;
+    const { checkUser } = authActionCreators;
+    checkUser(email, password, history);
   };
 
   return (
@@ -64,6 +56,7 @@ function LoginComponent(props) {
               component={renderTextField}
               className={classes.textField}
               value=""
+              autoFocus
             />
           </div>
           <div className={classes.divField}>
@@ -128,15 +121,16 @@ LoginComponent.propTypes = {
   status: PropTypes.bool,
   handleSubmit: PropTypes.func,
   submitting: PropTypes.bool,
-  userSearched: PropTypes.any,
+  history: PropTypes.object,
   authActionCreators: PropTypes.shape({
-    compareUser: PropTypes.func
+    checkUser: PropTypes.func
   })
 };
 
 const mapStateToProps = state => {
   return {
-    userSearched: state.auth.userSearched
+    userSearched: state.auth.userSearched,
+    token: state.auth.token
   };
 };
 
