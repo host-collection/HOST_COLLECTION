@@ -16,7 +16,7 @@ class PageController extends Controller
         $this->View['data']=[];
         if($request->isMethod("post")){
             $Validator=Validator::make($request->all(),[
-                    "name"=>"required|unique:dobo_page"
+                    "name"=>"required|unique:hc_page"
             ]);
             if($Validator->fails()){
                 return redirect()->back()->withErrors($Validator)->withInput();
@@ -27,7 +27,7 @@ class PageController extends Controller
                 $TNew->content=$request->input("content");
                 $TNew->status =$request->input("status");
                 $TNew->save();
-                $request->session()->flash("success","Thêm trang thành công.");
+                $request->session()->flash("success","Add page success.");
                 return redirect()->back();
             }
         }
@@ -51,10 +51,10 @@ class PageController extends Controller
         $get_page=App\Model\Page::find($id);
         if($request->isMethod("post")){
             $validator=Validator::make($request->all(),[
-                "name"=>"required|unique:dobo_page,name,{$id},id"
+                "name"=>"required|unique:hc_page,name,{$id},id"
             ],[
-                "name.required"=>"Vui lòng nhập tên trang.",
-                "name.unique"=>" Tên trang đã tồn tại. "
+                "name.required"=>"Please enter page name",
+                "name.unique"=>" Page name already exists. "
             ]);
             if($validator->fails()){
                 return redirect()->back()->withErrors($validator)->withInput();
@@ -64,7 +64,7 @@ class PageController extends Controller
                 $get_page->content=$request->input("content");
                 $get_page->status =$request->input("status");
                 $get_page->save();
-                $request->session()->flash("success"," Cập nhật trang thành công. ");
+                $request->session()->flash("success"," Update success. ");
                 return redirect()->back();
             }
        	}
@@ -73,6 +73,6 @@ class PageController extends Controller
         $this->View['data']=$data;
 
         return view("admin.page.edit",$this->View);
-       
+
     }
 }

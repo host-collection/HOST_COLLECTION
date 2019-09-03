@@ -23,6 +23,7 @@ class UserController extends InitController
                 "username"=>"required|max:225|unique:users",
                 "password"=>"required|confirmed|min:6",
 
+
             ],[
                 "name.required"=>"Please input full name",
                 "name.max"=>"Exceeds the character limit",

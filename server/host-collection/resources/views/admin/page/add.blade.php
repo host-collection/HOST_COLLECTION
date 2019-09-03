@@ -4,8 +4,8 @@
     <div class="breadcrumb-holder">
         <div class="container-fluid">
             <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Trang</a></li>
-                <li class="breadcrumb-item active">Thêm trang</li>
+                <li class="breadcrumb-item"><a href="/admin/page/list">Page</a></li>
+                <li class="breadcrumb-item active">Add Page</li>
             </ul>
         </div>
     </div>
@@ -24,7 +24,7 @@
                 <ul>
                     <li>
                         <p>{!!session('success')!!}</p>
-                    </li>          
+                    </li>
                 </ul>
             </div>
         @endif
@@ -33,18 +33,18 @@
         <section class="forms">
             <div class="container-fluid">
                 <!-- Page Header-->
-                <header> 
-                    <h1 class="h3 display">Thêm trang</h1>
+                <header>
+                    <h1 class="h3 display">Add Page</h1>
                 </header>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header d-flex align-items-center">
-                                <h4>Thông tin </h4>
+                                <h4>Information </h4>
                             </div>
                             <div class="card-body">
                                 <div class="form-group row" id='yume-label'>
-                                    <label class="col-sm-2 form-control-label">Tên trang</label>
+                                    <label class="col-sm-2 form-control-label">Name</label>
                                     <div class="col-sm-10">
                                         {!! Form::text("name", @$data['name'], ['class'=>'form-control'])!!}
                                     </div>
@@ -52,43 +52,43 @@
 
                                 <div class="form-group row" id='yume-label'>
 
-                                    <label class="col-sm-2 form-control-label">Trạng thái</label>
+                                    <label class="col-sm-2 form-control-label">Status</label>
                                     <div class="col-sm-2">
                                         <div class="radio" >
                                             <label>
                                                 {!! Form::radio('status','1',
-                                                (($data['status'])=='1')? true: false) !!} Hiển thị
+                                                (($data['status'])=='1')? true: false) !!} Show
                                             </label>
                                         </div>
                                         <div class="radio">
                                             <label>
-                                                {!! Form::radio('status','2', (($data['status'])=='2')? true : false ) !!} Ẩn 
+                                                {!! Form::radio('status','2', (($data['status'])=='2')? true : false ) !!} Hidden
                                             </label>
                                         </div>
                                     </div>
 
                                 </div>
                             </div>
-                        </div>         
+                        </div>
                     </div>
 
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Nội dung</h4>
+                                <h4>Content</h4>
                             </div>
                             <div class="card-body">
                                 <div class="form-group row" id="yume-label">
-                                    <label class="col-sm-2"> Nội dung</label>
-                                    <div class="col-sm-10"> 
+                                    <label class="col-sm-2"> Content</label>
+                                    <div class="col-sm-10">
                                         {!! Form::textarea("content", @$data['content'], ['class'=>'form-control', 'id'=>'content'])!!}
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer">
                                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                                <button type="submit" class="btn btn-sm btn-primary"><i class="fas fa-save"></i> LƯU </button>
-                                <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> LÀM LẠI </button>
+                                <button type="submit" class="btn btn-sm btn-primary"><i class="fas fa-save"></i> SAVE </button>
+                                <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> RESET </button>
                             </div>
                         </div>
                     </div>

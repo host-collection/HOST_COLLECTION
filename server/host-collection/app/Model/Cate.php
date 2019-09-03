@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cate extends Model
 {
-    protected $table = "host_cate";
+    protected $table = "hc_category";
     protected $primary = "id";
     protected $timestamp = true;
 

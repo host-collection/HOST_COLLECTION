@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
 {
-    protected $table = "dobo_page";
+    protected $table = "hc_page";
     protected $primary = "id";
     protected $timestamp = true;
 }

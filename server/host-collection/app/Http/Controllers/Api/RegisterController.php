@@ -10,7 +10,7 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 
-class RegisterController extends Controller
+class RegisterController extends BaseController
 {
     public function register(Request $request)
     {
@@ -29,9 +29,14 @@ class RegisterController extends Controller
 
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
+
+        //dd($input);
+
         $user = User::create($input);
         $success['token'] =  $user->createToken('MyApp')->accessToken;
         $success['name'] =  $user->name;
+        $success['username'] = $user->username;
+
 
 
         return $this->sendResponse($success, 'User register successfully.');

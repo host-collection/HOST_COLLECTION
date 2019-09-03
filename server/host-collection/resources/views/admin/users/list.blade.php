@@ -124,9 +124,9 @@
                                         </td>
                                         <td>
                                             @if($list['status']=='1')
-                                            <a class="badge badge-info"> Show  </a>
+                                            <span class="badge badge-info"> Show  </span>
                                             @else
-                                            <div class="badge badge-warning"> Hidden</div>
+                                            <span class="badge badge-warning"> Hidden</span>
                                             @endif
                                         </td>
 

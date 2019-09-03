@@ -71,8 +71,22 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
 		Route::any("/edit/{id}", "ProductController@edit");
 		Route::any("/remove", "ProductController@remove");
 		Route::get("/removepicture/{id}","ProductController@removepicture");
-	});
-	Route::resource('cate','CateController');
+    });
+
+    Route::group(["prefix"=>"location"], function(){
+		Route::any("/add", "LocationController@add");
+		Route::any("/list", "LocationController@list");
+		Route::any("/edit/{id}", "LocationController@edit");
+		Route::any("/remove", "LocationController@remove");
+    });
+
+    Route::group(['prefix'=>'banner'], function(){
+        Route::any('/add', 'BannerController@add');
+        Route::any('/list', 'BannerController@list');
+        Route::any('/edit/{id}', 'BannerController@edit');
+        Route::any('/remove', 'BannerController@remove');
+    });
+
 });
 
 Route::group(['namespace'=>"Auth"],function(){

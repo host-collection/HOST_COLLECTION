@@ -110,7 +110,7 @@
 
 
                             <div class="form-group row" id='yume-label'>
-                                <label class="col-sm-2 form-control-label">Địa chỉ</label>
+                                <label class="col-sm-2 form-control-label">Address</label>
                                 <div class="col-sm-10">
                                    {!! Form::text("address", @$data['address'], ['class'=>'form-control'])!!}
                                 </div>
@@ -124,7 +124,7 @@
                             </div>
 
                             <div class="form-group row" id='yume-label'>
-                                <label class="col-sm-2 form-control-label">Mô tả</label>
+                                <label class="col-sm-2 form-control-label">Description</label>
                                 <div class="col-sm-10">
                                     {!! Form::textarea("description", @$data['description'], ['class'=>'form-control', 'id'=>'description'])!!}
                                 </div>
@@ -140,30 +140,23 @@
                         </div>
                         <div class="card-body">
                             <div class="form-group row" id='yume-label'>
+                                <label class="col-sm-2">Twitter</label>
+                                <div class="col-sm-10">
+                                    {!! Form::text("twitter", @$data['twitter'], ['class'=>'form-control'])!!}
+                                </div>
+                            </div>
+
+                            <div class="form-group row" id='yume-label'>
+                                <label class="col-sm-2">Line</label>
+                                <div class="col-sm-10">
+                                    {!! Form::text("line", @$data['line'], ['class'=>'form-control'])!!}
+                                </div>
+                            </div>
+
+                            <div class="form-group row" id='yume-label'>
                                 <label class="col-sm-2">Facebook</label>
                                 <div class="col-sm-10">
                                     {!! Form::text("facebook", @$data['facebook'], ['class'=>'form-control'])!!}
-                                </div>
-                            </div>
-
-                            <div class="form-group row" id='yume-label'>
-                                <label class="col-sm-2">Google</label>
-                                <div class="col-sm-10">
-                                    {!! Form::text("google", @$data['google'], ['class'=>'form-control'])!!}
-                                </div>
-                            </div>
-
-                            <div class="form-group row" id='yume-label'>
-                                <label class="col-sm-2">Youtube</label>
-                                <div class="col-sm-10">
-                                    {!! Form::text("youtube", @$data['youtube'], ['class'=>'form-control'])!!}
-                                </div>
-                            </div>
-
-                            <div class="form-group row" id='yume-label'>
-                                <label class="col-sm-2">Skype</label>
-                                <div class="col-sm-10">
-                                    {!! Form::text("skype", @$data['skype'], ['class'=>'form-control'])!!}
                                 </div>
                             </div>
                         </div>
