@@ -8,15 +8,15 @@
                 <h2 class="h5">HOST COLLECTION</h2><span>Web Developer</span>
             </div>
             <!-- Small Brand information, appears on minimized sidebar-->
-            <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>H</strong><strong class="text-primary">C</strong></a></div>
+            <div class="sidenav-header-logo"><a href="/admin/index/index" class="brand-small text-center"> <strong>H</strong><strong class="text-primary">C</strong></a></div>
         </div>
         <!-- Sidebar Navigation Menus-->
         <div class="main-menu">
             <h5 class="sidenav-heading">Main</h5>
-            <ul id="side-main-menu" class="side-menu list-unstyled">                  
-                <li><a href="/admin/index/index"> <i class="icon-home"></i>Imfomation General</a></li>
+            <ul id="side-main-menu" class="side-menu list-unstyled">
+                <li><a href="/admin/index/index"> <i class="icon-home"></i>General</a></li>
 
-                <li>
+                <!-- <li>
                     <a href="#menucate" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Category </a>
                     <ul id="menucate" class="collapse list-unstyled ">
                         <li>
@@ -26,9 +26,21 @@
                             <a href="/admin/cate/list"><i class="far fa-list-alt"></i> List</a>
                         </li>
                     </ul>
-                </li>
-                
+                </li> -->
+
                 <li>
+                    <a href="#menu-location" data-toggle="collapse"><i class="fas fa-images"></i>Location</a>
+                    <ul id="menu-location"  class="collapse">
+                        <li>
+                            <a href="/admin/location/add"><i class="far fa-plus-square"></i> Add</a>
+                        </li>
+                        <li>
+                            <a href="/admin/location/list"><i class="far fa-list-alt"></i> List</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- <li>
                     <a href="#menu-slideshow" data-toggle="collapse"><i class="fas fa-images"></i>Slideshow</a>
                     <ul id="menu-slideshow"  class="collapse">
                         <li>
@@ -36,6 +48,18 @@
                         </li>
                         <li>
                             <a href="/admin/slideshow/list"><i class="far fa-list-alt"></i> List</a>
+                        </li>
+                    </ul>
+                </li> -->
+
+                <li>
+                    <a href="#menu-banner" data-toggle="collapse"><i class="fas fa-images"></i>Banner</a>
+                    <ul id="menu-banner"  class="collapse">
+                        <li>
+                            <a href="/admin/banner/add"><i class="far fa-plus-square"></i> Add</a>
+                        </li>
+                        <li>
+                            <a href="/admin/banner/list"><i class="far fa-list-alt"></i> List</a>
                         </li>
                     </ul>
                 </li>
@@ -48,30 +72,6 @@
                         </li>
                         <li>
                             <a href="/admin/users/list"><i class="far fa-list-alt"></i> List</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="#product" aria-expanded="false" data-toggle="collapse"> <i class="fab fa-product-hunt"></i> Product Management </a>
-                    <ul id="product" class="collapse list-unstyled ">
-                        <li>
-                            <a href="/admin/product/add"><i class="far fa-plus-square"></i> Add</a>
-                        </li>
-                        <li>
-                            <a href="/admin/product/list"><i class="far fa-list-alt"></i> List</a>
-                        </li>
-                    </ul>
-                </li>
-                
-                <li>
-                    <a href="#project" aria-expanded="false" data-toggle="collapse"> <i class="fab fa-product-hunt"></i>Project Management</a>
-                    <ul id="project" class="collapse list-unstyled ">
-                        <li>
-                            <a href="/admin/project/add"><i class="far fa-plus-square"></i> Add</a>
-                        </li>
-                        <li>
-                            <a href="/admin/project/list"><i class="far fa-list-alt"></i> List</a>
                         </li>
                     </ul>
                 </li>
@@ -90,33 +90,33 @@
             </ul>
         </div>
         <div class="admin-menu">
-          <h5 class="sidenav-heading">Imfomation </h5>
+          <h5 class="sidenav-heading">APPROVED</h5>
           <ul id="side-admin-menu" class="side-menu list-unstyled">
 
             <li>
-                <a href="#newscate" aria-expanded="false" data-toggle="collapse"> <i class="fas fa-newspaper"></i>News Category</a>
-                <ul id="newscate" class="collapse list-unstyled ">
+                <a href="#topic" aria-expanded="false" data-toggle="collapse"> <i class="fas fa-drum-steelpan"></i> Topic</a>
+                <ul id="topic" class="collapse list-unstyled ">
                     <li>
-                        <a href="/admin/news/addcate"><i class="far fa-plus-square"></i> Add</a>
+                        <a href="/admin/topic/shop"><i class="far fa-plus-square"></i> Shop</a>
                     </li>
                     <li>
-                        <a href="/admin/news/listcate"><i class="far fa-list-alt"></i> List</a>
+                        <a href="/admin/topic/host"><i class="far fa-list-alt"></i> Host</a>
                     </li>
                 </ul>
             </li>
-    
+
             <li>
-                <a href="#news" aria-expanded="false" data-toggle="collapse"> <i class="far fa-newspaper"></i>News</a>
-                <ul id="news" class="collapse list-unstyled ">
+                <a href="#pickup" aria-expanded="false" data-toggle="collapse"> <i class="fas fa-truck-pickup"></i> Pickup</a>
+                <ul id="pickup" class="collapse list-unstyled ">
                     <li>
-                        <a href="/admin/news/add"><i class="far fa-plus-square"></i> Add</a>
+                        <a href="/admin/pickup/shop"><i class="far fa-plus-square"></i> Shop</a>
                     </li>
                     <li>
-                        <a href="/admin/news/list"><i class="far fa-list-alt"></i> List</a>
+                        <a href="/admin/pickup/host"><i class="far fa-list-alt"></i> Host</a>
                     </li>
                 </ul>
             </li>
-    
+
           </ul>
         </div>
       </div>

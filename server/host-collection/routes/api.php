@@ -17,10 +17,21 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//Route::apiresource('index', 'Api\GeneralController');
-
 Route::middleware('auth:api')->group( function () {
     Route::resource('index', 'Api\GeneralController');
+    Route::resource('location', 'Api\LocationController');
+    Route::post('register', 'Api\RegisterController@register');
+    Route::resource('galleryshop', 'Api\GalleryShopController');
+
+    Route::resource('banner', 'Api\BannerController');
+
+    Route::resource('users', 'Api\UsersController');
+
+    Route::get('/search-user', 'Api\UsersController@search');
+
+    Route::resource('/topicshop', 'Api\TopicShopController');
+
+    Route::resource('/topic', 'Api\TopicController');
 });
 
 //Route::apiResource('index', 'Api\GeneralController');

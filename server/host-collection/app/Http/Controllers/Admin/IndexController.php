@@ -59,10 +59,9 @@ class IndexController extends Controller
    				$TNew->description = $request->input("description");
 
    				$TNew->social = json_encode([
+   					"twitter" => $request->input("twitter"),
+   					"line" => $request->input("line"),
    					"facebook" => $request->input("facebook"),
-   					"google" => $request->input("google"),
-   					"skype" => $request->input("skype"),
-   					"youtube" => $request->input("youtube")
    				]);
 
    				// $TNew->seo = json_encode([
@@ -81,9 +80,11 @@ class IndexController extends Controller
 
    		$data = DTGeneral::find(1)->toArray();
 
-   		//$data = array_merge($data, array_merge((array) json_decode($data['seo']),(array) json_decode($data['social'])));
+   		$data = array_merge($data,(array) json_decode($data['social']));
 
-   		$this->View['data'] = $data;
+        $this->View['data'] = $data;
+
+        //dd($data);
 
    		return view("admin.index.index", $this->View);
    	}

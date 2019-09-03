@@ -11,7 +11,7 @@
     </div>
 	<section class="forms">
         <div class="container-fluid">
-            <header> 
+            <header>
                 <h1 class="h3 display">Danh sách Slideshow</h1>
             </header>
             {!! Form::open(["method"=>"get"])!!}
@@ -74,9 +74,9 @@
                                         </td>
                                         <td>
                                             @if($list['status']=='1')
-                                            <a class="badge badge-info"> Hiển thị  </a>
+                                            <span class="badge badge-info"> Hiển thị  </span>
                                             @else
-                                            <div class="badge badge-warning"> Ẩn... </div>
+                                            <span class="badge badge-warning"> Ẩn... </span>
                                             @endif
                                         </td>
                                         <td>

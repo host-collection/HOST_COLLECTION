@@ -24,8 +24,6 @@ class GeneralController extends BaseController
         // $general = DTGeneral::get();
         // //return GeneralResources::collection($general);
 
-        // return response()->json($general, 200);
-
         $general = DTGeneral::all();
 
         //return $this->sendResponse($general->toArray(), 'Products retrieved successfully.');
@@ -41,8 +39,6 @@ class GeneralController extends BaseController
     public function store(Request $request)
     {
         $input = $request->all();
-
-        $request->headers->set('Accept', 'application/json');
 
         $validator = Validator::make($input, [
             'phone' => 'required',
@@ -81,7 +77,7 @@ class GeneralController extends BaseController
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -93,5 +89,7 @@ class GeneralController extends BaseController
     public function destroy($id)
     {
         //
+
+
     }
 }
