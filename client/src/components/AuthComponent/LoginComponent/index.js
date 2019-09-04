@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import { reduxForm, Field } from "redux-form";
 import { NavLink } from "react-router-dom";
 import * as authAction from '../../../actions/auth';
-import renderTextField from "../../FormHelper/TextField";
+import renderTextField from "../../../commons/FormHelper/TextField";
 import * as titleConstants from "../../../constants/ui/login";
 import validate from "./validate";
 import amebaLogo from '../../../assets/images/ameba.png';

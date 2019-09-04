@@ -5,10 +5,11 @@ import {
   Tab, Tabs, AppBar, Box
 } from "@material-ui/core";
 import { GiStrong } from "react-icons/gi";
-import { MdStore } from "react-icons/md";
+import { FaStore } from "react-icons/fa";
 import * as titleConstants from '../../../constants/ui/myPage';
 import styles from "./styles";
 import FavoriteHostItem from "../FavoriteHostItem";
+import FavoriteShopItem from "../FavoriteShopItem";
 
 function TabPanel(props) {
   const {
@@ -67,7 +68,7 @@ function MemberTopFavorite(props) {
           <Tab
             className={`${classes.tabItem} ${value === 1 ? classes.active : ''}`}
             label={titleConstants.SHOP}
-            icon={<MdStore />}
+            icon={<FaStore />}
             {...a11yProps(1)}
           />
         </Tabs>
@@ -78,7 +79,10 @@ function MemberTopFavorite(props) {
         <FavoriteHostItem />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <FavoriteShopItem />
+        <FavoriteShopItem />
+        <FavoriteShopItem />
+        <FavoriteShopItem />
       </TabPanel>
     </div>
   );

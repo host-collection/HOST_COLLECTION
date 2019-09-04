@@ -16,19 +16,27 @@ const styles = (theme) => ({
       objectPosition: 'center',
       marginRight: 20
     },
-    '& h4, & img': {
+    '& h4': {
       transition: '.3s'
     },
     '& h5': {
       marginTop: 7,
-      color: theme.color.color4
-    },
-    '&:hover': {
-      '& h4': {
-        color: theme.color.primary
-      },
-      '& img': {
-        filter: 'brightness(.7)'
+      color: theme.color.color4,
+      '& a': {
+        color: 'white',
+        display: 'table',
+        background: theme.color.primary,
+        borderRadius: 3,
+        padding: '0 10px',
+        minWidth: 90,
+        height: 30,
+        lineHeight: '30px',
+        marginTop: 10,
+        border: `2px solid ${theme.color.primary}`,
+        '&:hover': {
+          background: 'none',
+          color: theme.color.primary,
+        }
       }
     }
   },

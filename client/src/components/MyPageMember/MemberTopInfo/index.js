@@ -15,7 +15,7 @@ function MemberTopInfo(props) {
       <div className={classes.avatarBox}>
         <div className={classes.avatarBoxLeft}>
           <img
-            src="https://image.freepik.com/free-psd/set-merchandising-products-with-company-logo_23-2148154563.jpg"
+            src="https://instagram.fsgn2-3.fna.fbcdn.net/vp/043080ff43c3943780a670d76783e64f/5E13679C/t51.2885-15/e35/66490128_2450462518511023_1916167546464120854_n.jpg?_nc_ht=instagram.fsgn2-3.fna.fbcdn.net&_nc_cat=107"
             alt="avatar"
           />
           <h4>{userInfo.name}</h4>
