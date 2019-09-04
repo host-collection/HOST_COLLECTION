@@ -20,3 +20,5 @@ export const NOTIFICATION_LIGHT = 'Notification Light';
 export const UPDATE = 'UPDATE';
 
 export const CLICK_TO_EDIT = 'Click to edit your information';
+export const ABOUT_NOMINATED_CONTENT = 'You can nominate up to 10 people up to 3 times a day. The number of nominations determines the nomination ranking.';
+export const LIST_FAVORITE_CONTENT = 'You can view the latest posts from your favorite hosts and host clubs on the Favorites page';

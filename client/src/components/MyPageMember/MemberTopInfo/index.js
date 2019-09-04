@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { FiChevronRight } from "react-icons/fi";
 import styles from './styles';
+import TitleChild from '../../TitleChild';
 import * as titleConstants from '../../../constants/ui/myPage';
 
 function MemberTopInfo(props) {
@@ -26,6 +27,14 @@ function MemberTopInfo(props) {
         >
           <FiChevronRight />
         </NavLink>
+      </div>
+      <div className={classes.nominated}>
+        <TitleChild titleChild={titleConstants.ABOUT_NOMINATED} />
+        { titleConstants.ABOUT_NOMINATED_CONTENT }
+      </div>
+      <div className={classes.listFavorite}>
+        <TitleChild titleChild={titleConstants.LIST_FAVORITE} />
+        { titleConstants.LIST_FAVORITE_CONTENT }
       </div>
     </div>
   );
