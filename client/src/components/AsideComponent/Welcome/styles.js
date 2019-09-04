@@ -34,6 +34,21 @@ const styles = (theme) => ({
       color: 'black'
     }
   },
+  logoutBtn: {
+    background: 'none',
+    border: 0,
+    color: theme.color.color6,
+    cursor: 'pointer',
+    '& h6': {
+      marginTop: -5
+    },
+    '&:focus': {
+      outline: 'none'
+    },
+    '&:hover': {
+      color: 'black'
+    }
+  },
   closeBtn: {
     display: 'none',
     background: 'none',

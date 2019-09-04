@@ -9,7 +9,7 @@ import theme from "../../commons/Theme";
 import configureStore from "../../redux/configureStore";
 import styles from "./styles";
 import Aside from "../Aside";
-import routes from "../../routes";
+import { routes } from "../../routes";
 import { MobileHeader } from "../../components/AsideComponent";
 import OverlayHelper from "../../commons/OverlayHelper";
 import GlobalLoading from "../../components/GlobalLoading";
@@ -64,12 +64,15 @@ function App(props) {
               closeMenu={() => setShowAside(false)}
               active={showAside}
             />
-            <Aside
+            <Route
               showAside={showAside}
               onHiddenAside={() => setShowAside(false)}
+              component={({ history }) => <Aside history={history} />}
             />
             <MobileHeader onShowAside={onShowAside} />
-            <div className={classes.article}>{showContentMenus(routes)}</div>
+            <div className={classes.article}>
+              {showContentMenus(routes)}
+            </div>
           </div>
         </Router>
       </ThemeProvider>

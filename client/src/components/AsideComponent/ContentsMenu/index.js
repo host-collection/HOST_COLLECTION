@@ -14,82 +14,83 @@ import {
   FaShareAlt
 } from "react-icons/fa";
 import { IoMdGift, IoMdDisc } from 'react-icons/io';
+import uniqid from 'uniqid';
 import styles from './styles';
 import * as titleContant from '../../../constants/ui/aside';
 
 const menus = [
   {
-    id: 1,
+    id: uniqid(),
     name: titleContant.SNS,
     icon: <FaShareAlt />,
     to: '/sns',
     exact: false
   },
   {
-    id: 4,
+    id: uniqid(),
     name: titleContant.SHOP_LIST,
     icon: <FaStore />,
     to: '/shop-list',
     exact: false
   },
   {
-    id: 5,
+    id: uniqid(),
     name: titleContant.COUPON,
     icon: <FaDiscourse />,
     to: '/coupon',
     exact: false
   },
   {
-    id: 3,
+    id: uniqid(),
     name: titleContant.BIRTHDAY,
     icon: <FaBirthdayCake />,
     to: '/birthday',
     exact: false
   },
   {
-    id: 6,
+    id: uniqid(),
     name: titleContant.RECRUITMENT,
     icon: <FaMale />,
     to: '/recruitment',
     exact: false
   },
   {
-    id: 2,
+    id: uniqid(),
     name: titleContant.INFORMATION,
     icon: <FaInfoCircle />,
     to: '/information',
     exact: false
   },
   {
-    id: 7,
+    id: uniqid(),
     name: titleContant.VR,
     icon: <FaVrCardboard />,
     to: '/vr',
     exact: false
   },
   {
-    id: 8,
+    id: uniqid(),
     name: titleContant.CD_DVD,
     icon: <IoMdDisc />,
     to: '/cd-dvd',
     exact: false
   },
   {
-    id: 9,
+    id: uniqid(),
     name: titleContant.EVENT,
     icon: <IoMdGift />,
     to: '/event',
     exact: false
   },
   {
-    id: 10,
+    id: uniqid(),
     name: titleContant.VIDEO,
     icon: <FaVideo />,
     to: '/video',
     exact: false
   },
   {
-    id: 11,
+    id: uniqid(),
     name: titleContant.MANGA,
     icon: <FaBookReader />,
     to: '/manga',

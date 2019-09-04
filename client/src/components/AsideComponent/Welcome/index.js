@@ -4,33 +4,62 @@ import { withStyles } from "@material-ui/styles";
 import { IoIosLogIn, IoIosLogOut } from "react-icons/io";
 import { MdMenu, MdClose } from "react-icons/md";
 import PropTypes from "prop-types";
+import _ from 'lodash/lang';
 import styles from "./styles";
 import logo from "../../../assets/images/logo.png";
 import * as titleContant from "../../../constants/ui/aside";
 
 function Welcome(props) {
-  const { classes, onHiddenAside, mobile, onShowAside } = props;
-
-  // const isLogin = () => {
-  //   let result = null;
-  //   if (localStorage.getItem("token")) {
-  //     result = (
-
-  //     );
-  //   } else {
-  //     result = (
-  //       <button type="button">
-  //         <IoIosLogOut />
-  //         <h6>{titleContant.LOGOUT}</h6>
-  //       </button>
-  //     );
-  //   }
-  //   return result;
-  // }
+  const {
+    classes,
+    onHiddenAside,
+    mobile,
+    onShowAside,
+  } = props;
 
   const onLogout = () => {
-    // localStorage.removeItem('token');
-    console.log(localStorage.getItem("token"));
+    const { logout, history } = props;
+    logout(history);
+  };
+
+
+  const renderAuthButton = () => {
+    const { classes, authStatus } = props;
+    let result = null;
+    if (authStatus === '2' || localStorage.getItem("token")) {
+      result = (
+        <button type="button" className={classes.logoutBtn} onClick={onLogout}>
+          <IoIosLogOut />
+          <h6>{titleContant.LOGOUT}</h6>
+        </button>
+      );
+    } else if (authStatus === '1' || authStatus === '2') {
+      result = (
+        <NavLink to="/login" className={classes.loginBtn}>
+          <IoIosLogIn />
+          <h6>{titleContant.LOGIN}</h6>
+        </NavLink>
+      );
+    } else {
+      result = (
+        <NavLink to="/login" className={classes.loginBtn}>
+          <IoIosLogIn />
+          <h6>{titleContant.LOGIN}</h6>
+        </NavLink>
+      );
+    }
+    return result;
+  };
+
+  const renderUserWelcome = () => {
+    let result = '';
+    const { userInfo } = props;
+    if (_.isEmpty(userInfo)) {
+      result = `${titleContant.WELCOME} to Portal`;
+    } else {
+      result = `${titleContant.WELCOME} ${userInfo.name}`;
+    }
+    return result;
   };
 
   return (
@@ -41,19 +70,9 @@ function Welcome(props) {
       <h5 className={classes.locationName}>Tokyo</h5>
       <div className={classes.welcome}>
         <h6 className={classes.welcomeText}>
-          {`${titleContant.WELCOME_TO} Portal`}
+          { renderUserWelcome() }
         </h6>
-        {localStorage.getItem("token") ? (
-          <button type="button" onClick={onLogout}>
-            <IoIosLogOut />
-            <h6>{titleContant.LOGOUT}</h6>
-          </button>
-        ) : (
-          <NavLink to="/login" className={classes.loginBtn}>
-            <IoIosLogIn />
-            <h6>{titleContant.LOGIN}</h6>
-          </NavLink>
-        )}
+        {renderAuthButton()}
         <button
           type="button"
           onClick={onHiddenAside}
@@ -75,7 +94,11 @@ Welcome.propTypes = {
   classes: PropTypes.object,
   onShowAside: PropTypes.func,
   onHiddenAside: PropTypes.func,
-  mobile: PropTypes.string
+  mobile: PropTypes.string,
+  authStatus: PropTypes.string,
+  userInfo: PropTypes.object,
+  history: PropTypes.object,
+  logout: PropTypes.func
 };
 
 export default withStyles(styles)(Welcome);

@@ -5,33 +5,34 @@ import {
   FiUser, FiSearch, FiHeart, FiHome
 } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
+import uniqid from 'uniqid';
 import styles from "./styles";
 import * as titleContants from "../../../constants/ui/aside";
 
 const mainMenu = [
   {
-    id: 1,
+    id: uniqid(),
     name: titleContants.HOME,
     icon: <FiHome />,
     to: "/",
     exact: true
   },
   {
-    id: 2,
+    id: uniqid(),
     name: titleContants.MY_PAGE,
     icon: <FiUser />,
     to: "/my-page",
     exact: false
   },
   {
-    id: 3,
+    id: uniqid(),
     name: titleContants.FAVORITE,
     icon: <FiHeart />,
     to: "/favorite",
     exact: false
   },
   {
-    id: 4,
+    id: uniqid(),
     name: titleContants.SEARCH,
     icon: <FiSearch />,
     to: "/search",

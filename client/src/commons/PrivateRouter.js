@@ -1,5 +1,6 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -15,3 +16,7 @@ export const PrivateRoute = ({ component: Component, ...rest }) => (
     ))}
   />
 );
+
+PrivateRoute.propTypes = {
+  component: PropTypes.any
+};
