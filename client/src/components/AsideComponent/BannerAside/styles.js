@@ -6,6 +6,7 @@ const styles = () => ({
       display: 'flex',
       overflow: 'hidden',
       marginBottom: 8,
+      borderRadius: 3,
     },
     '& img': {
       borderRadius: 3,

@@ -48,7 +48,7 @@ function SelectArea(props) {
       });
       result = locationsFiltered.map(location => {
         return (
-          <option key={`location-${location.id}`} value={location.alias}>
+          <option key={`location-${location.id}`} value={location.id}>
             { location.name }
           </option>
         );

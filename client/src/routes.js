@@ -1,4 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
+import uniqid from 'uniqid';
 
 import NotFoundPage from './containers/NotFoundPage';
 import Homepage from './containers/Homepage';
@@ -7,43 +9,80 @@ import MyPage from './containers/MyPage';
 import FavoritePage from './containers/FavoritePage';
 import SearchPage from './containers/SearchPage';
 
-const routes = [
+import MemberSettings from './containers/MyPage/MemberSettings';
+import MemberTop from './containers/MyPage/MemberTop';
+
+export const routes = [
   {
-    id: 1,
+    id: uniqid(),
     path: '/',
     exact: true,
-    main: () => <Homepage />
+    main: () => <Homepage />,
+    private: false
   },
   {
-    id: 2,
+    id: uniqid(),
     path: '/login',
     exact: false,
-    main: () => <AuthPage />
+    main: ({ history }) => <AuthPage history={history} />,
+    private: false
   },
   {
-    id: 3,
+    id: uniqid(),
     path: '/my-page',
     exact: false,
-    main: () => <MyPage />
+    main: ({ history }) => <MyPage history={history} />,
+    private: true
   },
   {
-    id: 4,
+    id: uniqid(),
     path: '/favorite',
     exact: false,
-    main: () => <FavoritePage />
+    main: () => <FavoritePage />,
+    private: true
   },
   {
-    id: 5,
+    id: uniqid(),
     path: '/search',
     exact: false,
-    main: () => <SearchPage />
+    main: () => <SearchPage />,
+    private: false
   },
   {
-    id: 0,
+    id: uniqid(),
     path: '',
     exact: false,
-    main: () => <NotFoundPage />
+    main: () => <NotFoundPage />,
+    private: false
+  }
+];
+
+export const myPageMemberRoutes = [
+  {
+    id: uniqid(),
+    path: '/my-page',
+    exact: true,
+    main: () => <MemberTop />,
+  },
+  {
+    id: uniqid(),
+    path: '/my-page/settings',
+    exact: false,
+    main: () => <MemberSettings />,
   },
 ];
 
-export default routes;
+export const myPageHostRoutes = [
+  {
+    id: uniqid(),
+    path: '/my-page',
+    exact: false,
+    main: () => <MemberSettings />,
+  },
+  {
+    id: uniqid(),
+    path: '/my-page/settings',
+    exact: false,
+    main: () => <MemberSettings />,
+  },
+];

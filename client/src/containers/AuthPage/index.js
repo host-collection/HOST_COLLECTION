@@ -5,7 +5,7 @@ import styles from './styles';
 import { LoginComponent, RegisterComponent } from '../../components/AuthComponent';
 
 function LoginPage(props) {
-  const { classes } = props;
+  const { classes, history } = props;
   const [loginStatus, setLoginStatus] = useState(true);
   const [registerStatus, setRegisterStatus] = useState(false);
 
@@ -25,6 +25,7 @@ function LoginPage(props) {
       <LoginComponent
         status={loginStatus}
         onChangeRegister={onChangeRegister}
+        history={history}
       />
       <RegisterComponent
         status={registerStatus}
@@ -35,7 +36,8 @@ function LoginPage(props) {
 }
 
 LoginPage.propTypes = {
-  classes: PropTypes.object
+  classes: PropTypes.object,
+  history: PropTypes.object,
 };
 
 export default withStyles(styles)(LoginPage);

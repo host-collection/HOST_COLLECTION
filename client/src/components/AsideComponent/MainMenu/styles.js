@@ -14,7 +14,6 @@ const styles = (theme) => ({
     marginBottom: 3,
     padding: '5px 10px',
     display: 'flex',
-    alignItems: 'center',
     fontSize: 16,
     '&:hover': {
       background: theme.color.primary,
