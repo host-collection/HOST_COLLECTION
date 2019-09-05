@@ -54,10 +54,11 @@ function Welcome(props) {
   const renderUserWelcome = () => {
     let result = '';
     const { userInfo } = props;
+
     if (_.isEmpty(userInfo)) {
       result = `${titleContant.WELCOME} to Portal`;
     } else {
-      result = `${titleContant.WELCOME} ${userInfo.name}`;
+      result = `${titleContant.WELCOME} ${userInfo.nick_name}`;
     }
     return result;
   };
