@@ -2,7 +2,14 @@ const styles = (theme) => ({
   login: {
     position: 'relative',
     width: '50%',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+      position: 'absolute',
+      top: 50,
+      left: 0,
+      overflow: 'initial'
+    }
   },
   button: {
     position: 'absolute',
@@ -24,6 +31,23 @@ const styles = (theme) => ({
     },
     '&:hover': {
       color: theme.color.color7
+    },
+    [theme.breakpoints.down("sm")]: {
+      position: 'absolute',
+      background: theme.color.color3,
+      top: -45,
+      left: 5,
+      width: 'calc(50% - 7.5px)',
+      zIndex: 10,
+      transform: 'none',
+      fontSize: 16,
+      padding: 10,
+      '&:hover': {
+        color: 'white',
+      },
+      '&.active': {
+        background: theme.color.primary
+      }
     }
   },
   loginContent: {
@@ -35,7 +59,14 @@ const styles = (theme) => ({
     top: 0,
     transform: 'translateX(100%)',
     transition: '.5s',
-    padding: 30
+    padding: 30,
+    [theme.breakpoints.down('sm')]: {
+      position: 'relative',
+      zIndex: 10
+    },
+    [theme.breakpoints.down('xs')]: {
+      padding: 15
+    }
   },
   active: {
     transform: 'none',

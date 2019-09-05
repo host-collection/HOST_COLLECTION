@@ -27,8 +27,12 @@ function RegisterComponent(props) {
 
   return (
     <div className={classes.register}>
-      <button className={classes.button} type="button" onClick={onChangeLogin}>
-        Register Now
+      <button
+        className={`${classes.button} ${status ? 'active' : ''}`}
+        type="button"
+        onClick={onChangeLogin}
+      >
+        Register
       </button>
       <div
         className={`${classes.registerContent} ${status ? classes.active : ""}`}

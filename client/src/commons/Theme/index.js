@@ -12,7 +12,18 @@ const theme = createMuiTheme({
     color7: '#ff7bab',
     color8: '#b2b2b2',
     error: red[500]
+  },
+  breakpoints: {
+    values: {
+      xxs: 0,
+      xs: 450,
+      sm: 575,
+      md: 767,
+      lg: 960,
+      xl: 1200
+    }
   }
 });
 
 export default theme;
+export const keys = ['xs', 'sm', 'md', 'lg', 'xl'];

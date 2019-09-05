@@ -70,19 +70,23 @@ function Welcome(props) {
       </NavLink>
       <h5 className={classes.locationName}>Tokyo</h5>
       <div className={classes.welcome}>
-        <h6 className={classes.welcomeText}>
+        <h6 className={`${classes.welcomeText} ${mobile ? 'welcomeMobile' : ''}`}>
           { renderUserWelcome() }
         </h6>
         {renderAuthButton()}
         <button
           type="button"
           onClick={onHiddenAside}
-          className={classes.closeBtn}
+          className={`${classes.closeBtn} ${mobile ? 'closeMobile' : ''}`}
         >
           <MdClose />
           <h6>{titleContant.MENU}</h6>
         </button>
-        <button type="button" onClick={onShowAside} className={classes.openBtn}>
+        <button
+          type="button"
+          onClick={onShowAside}
+          className={`${classes.openBtn} ${mobile ? 'menuMobile' : ''}`}
+        >
           <MdMenu />
           <h6>{titleContant.MENU}</h6>
         </button>

@@ -37,11 +37,11 @@ function LoginComponent(props) {
   return (
     <div className={classes.login}>
       <button
-        className={classes.button}
+        className={`${classes.button} ${status ? 'active' : ''}`}
         type="button"
         onClick={onChangeRegister}
       >
-        Login Now
+        Login
       </button>
       <div className={`${classes.loginContent} ${status ? classes.active : ""}`}>
         <form onSubmit={handleSubmit(onLogin)}>

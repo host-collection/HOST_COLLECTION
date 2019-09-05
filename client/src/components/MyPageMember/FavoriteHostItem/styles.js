@@ -14,14 +14,26 @@ const styles = (theme) => ({
       borderRadius: '50%',
       objectFit: 'cover',
       objectPosition: 'center',
-      marginRight: 20
+      marginRight: 20,
+      [theme.breakpoints.down("xs")]: {
+        width: 60,
+        height: 60,
+        marginRight: 10
+      }
     },
     '& h4, & img': {
-      transition: '.3s'
+      transition: '.3s',
+      [theme.breakpoints.down("xs")]: {
+        fontSize: 14
+      }
     },
     '& h5': {
       marginTop: 7,
-      color: theme.color.color4
+      color: theme.color.color4,
+      [theme.breakpoints.down("xs")]: {
+        marginTop: 3,
+        fontSize: 12
+      }
     },
     '&:hover': {
       '& h4': {
@@ -58,6 +70,19 @@ const styles = (theme) => ({
       outline: 'none',
       background: theme.color.primary,
       color: 'white'
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: 40,
+      height: 40,
+      borderRadius: 3,
+      marginLeft: 5,
+      '& svg': {
+        fontSize: 20,
+        margin: 0
+      },
+      '& span': {
+        display: 'none'
+      }
     }
   }
 });

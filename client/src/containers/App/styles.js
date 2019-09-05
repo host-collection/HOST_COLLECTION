@@ -8,12 +8,17 @@ const styles = (theme) => ({
     padding: 30,
     paddingTop: 15,
     marginLeft: 220,
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down("md")]: {
       width: '100%',
-      paddingTop: 60,
+      paddingTop: 75,
+      paddingBottom: 85,
       marginLeft: 0,
-      height: 5000
     },
+    [theme.breakpoints.down("sm")]: {
+      padding: 15,
+      paddingTop: 75,
+      paddingBottom: 85,
+    }
   },
   loadingComponent: {
     position: 'fixed',

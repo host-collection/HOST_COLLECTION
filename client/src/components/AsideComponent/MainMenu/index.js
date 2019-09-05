@@ -65,17 +65,18 @@ function MainMenu(props) {
     return result;
   };
 
-  const { classes } = props;
+  const { classes, mobile } = props;
 
   return (
-    <div className={classes.mainMenu}>
+    <div className={`${classes.mainMenu} ${mobile ? 'mainMenuMobile' : ''}`}>
       {showMenus(mainMenu)}
     </div>
   );
 }
 
 MainMenu.propTypes = {
-  classes: PropTypes.object
+  classes: PropTypes.object,
+  mobile: PropTypes.string
 };
 
 export default withStyles(styles)(MainMenu);

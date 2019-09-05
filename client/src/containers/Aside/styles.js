@@ -27,7 +27,7 @@ const styles = (theme) => ({
         width: 7,
       }
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down("md")]: {
       transform: 'translateX(-105%)',
     },
   },

@@ -1,11 +1,9 @@
 /* eslint-disable no-shadow */
 import { withStyles } from "@material-ui/core";
-import { ThemeProvider } from "@material-ui/styles";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import React, { useState } from "react";
 import { Provider } from "react-redux";
 import PropTypes from "prop-types";
-import theme from "../../commons/Theme";
 import configureStore from "../../redux/configureStore";
 import styles from "./styles";
 import Aside from "../Aside";
@@ -70,28 +68,25 @@ function App(props) {
 
   return (
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <Router>
-          <GlobalLoading />
-          <div className={classes.wrapper}>
-            <OverlayHelper
-              closeMenu={() => setShowAside(false)}
-              active={showAside}
-            />
-            <Route
-              showAside={showAside}
-              onHiddenAside={() => setShowAside(false)}
-              component={({ history }) => <Aside history={history} />}
-            />
-            <MobileHeader onShowAside={onShowAside} />
-            <div className={classes.article}>
-              <Switch>
-                {showContentMenus(routes)}
-              </Switch>
-            </div>
+      <Router>
+        <GlobalLoading />
+        <div className={classes.wrapper}>
+          <OverlayHelper
+            closeMenu={() => setShowAside(false)}
+            active={showAside}
+          />
+          <Aside
+            showAside={showAside}
+            onHiddenAside={() => setShowAside(false)}
+          />
+          <MobileHeader onShowAside={onShowAside} />
+          <div className={classes.article}>
+            <Switch>
+              {showContentMenus(routes)}
+            </Switch>
           </div>
-        </Router>
-      </ThemeProvider>
+        </div>
+      </Router>
     </Provider>
   );
 }

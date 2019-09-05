@@ -22,7 +22,7 @@ const styles = (theme) => ({
     '& button': {
       background: theme.color.primary,
       border: 0,
-      width: 150,
+      width: 140,
       textAlign: 'center',
       height: 50,
       lineHeight: '50px',
@@ -35,7 +35,7 @@ const styles = (theme) => ({
     '& a': {
       display: 'inline-block',
       background: theme.color.color2,
-      width: 150,
+      width: 140,
       textAlign: 'center',
       height: 50,
       lineHeight: '50px',

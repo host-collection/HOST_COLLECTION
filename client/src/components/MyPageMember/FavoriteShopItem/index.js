@@ -33,11 +33,15 @@ function FavoriteShopItem(props) {
       <div className={classes.boxRight}>
         <button className={classes.boxRightBtn} type="button">
           <FaRegHeart />
-          {titleConstants.LIKE_THIS}
+          <span>
+            {titleConstants.LIKE_THIS}
+          </span>
         </button>
         <button className={classes.boxRightBtn} type="button">
           <IoMdCloseCircleOutline />
-          {titleConstants.REMOVE}
+          <span>
+            {titleConstants.REMOVE}
+          </span>
         </button>
       </div>
     </div>

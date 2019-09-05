@@ -32,11 +32,15 @@ function FavoriteHostItem(props) {
       <div className={classes.boxRight}>
         <button className={classes.boxRightBtn} type="button">
           <FaGlassCheers />
-          { titleConstants.TODAY_CHOOSE }
+          <span>
+            { titleConstants.TODAY_CHOOSE }
+          </span>
         </button>
         <button className={classes.boxRightBtn} type="button">
           <IoMdCloseCircleOutline />
-          { titleConstants.REMOVE }
+          <span>
+            { titleConstants.REMOVE }
+          </span>
         </button>
       </div>
     </div>

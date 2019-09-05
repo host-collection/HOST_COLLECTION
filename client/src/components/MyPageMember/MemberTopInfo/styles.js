@@ -15,6 +15,11 @@ const styles = (theme) => ({
       objectPosition: 'center',
       marginRight: 20,
       borderRadius: '50%',
+      [theme.breakpoints.down("xs")]: {
+        width: 70,
+        height: 70,
+        marginRight: 10
+      }
     },
     '& h4': {
       color: theme.color.color4
@@ -25,6 +30,9 @@ const styles = (theme) => ({
     color: theme.color.color4,
     '&:hover': {
       color: theme.color.primary
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 40
     }
   },
   nominated: {

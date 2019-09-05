@@ -2,7 +2,14 @@ const styles = (theme) => ({
   register: {
     position: 'relative',
     width: '50%',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+      position: 'absolute',
+      top: 50,
+      left: 0,
+      overflow: 'initial'
+    }
   },
   button: {
     position: 'absolute',
@@ -24,6 +31,24 @@ const styles = (theme) => ({
     },
     '&:hover': {
       color: theme.color.color7
+    },
+    [theme.breakpoints.down("sm")]: {
+      position: 'absolute',
+      background: theme.color.color3,
+      top: -45,
+      right: 5,
+      width: 'calc(50% - 7.5px)',
+      zIndex: 10,
+      transform: 'none',
+      fontSize: 16,
+      padding: 10,
+      left: 'initial',
+      '&:hover': {
+        color: 'white',
+      },
+      '&.active': {
+        background: theme.color.primary
+      }
     }
   },
   registerContent: {
@@ -38,6 +63,12 @@ const styles = (theme) => ({
     padding: 30,
     '& h3': {
       textAlign: 'center'
+    },
+    [theme.breakpoints.down('sm')]: {
+      position: 'relative'
+    },
+    [theme.breakpoints.down('xs')]: {
+      padding: 15
     }
   },
   active: {

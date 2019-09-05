@@ -11,7 +11,7 @@ const styles = (theme) => ({
     display: 'block',
     width: 160,
     margin: '20px auto',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       width: 'auto',
       height: 30
     },
@@ -66,7 +66,7 @@ const styles = (theme) => ({
     '& h6': {
       marginTop: -5,
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'block',
     },
   },
@@ -98,11 +98,11 @@ const styles = (theme) => ({
       width: 'auto',
       margin: 'auto'
     },
-    '& .Welcome-openBtn-12': {
+    '& .menuMobile': {
       display: 'block',
       marginLeft: 10
     },
-    '& .Welcome-welcomeText-13, & .Welcome-closeBtn-11': {
+    '& .closeMobile, & .Welcome-closeBtn-11': {
       display: 'none'
     },
     '& a, & button': {
@@ -125,10 +125,10 @@ const styles = (theme) => ({
     '& svg': {
       fontSize: 30
     },
-    '& .Welcome-welcomeText-14': {
+    '& .welcomeMobile': {
       display: 'none'
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'flex',
     },
   },
