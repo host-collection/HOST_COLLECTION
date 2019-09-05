@@ -13,7 +13,7 @@ import renderTextField from "../../../commons/FormHelper/TextField";
 import * as titleConstants from "../../../constants/ui/login";
 import validate from "./validate";
 import amebaLogo from '../../../assets/images/ameba.png';
-import googleLogo from '../../../assets/images/google.png';
+import googleLogo from "../../../assets/images/google.png";
 import styles from "./styles";
 
 function LoginComponent(props) {

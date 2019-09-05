@@ -13,7 +13,8 @@ import { routes } from "../../routes";
 import { MobileHeader } from "../../components/AsideComponent";
 import OverlayHelper from "../../commons/OverlayHelper";
 import GlobalLoading from "../../components/GlobalLoading";
-import { PrivateRoute } from '../../commons/PrivateRouter';
+import { PrivateRoute } from "../../commons/PrivateRouter";
+import { ProtectedRoute } from "../../commons/ProtectedRouter";
 
 const store = configureStore();
 
@@ -29,27 +30,40 @@ function App(props) {
 
     if (routes.length > 0) {
       result = routes.map(route => {
-        return (
-          (route.private === true) ? (
+        let routeResult = null;
+        if (route.private === true) {
+          routeResult = (
             <PrivateRoute
               key={route.id}
               path={route.path}
               exact={route.exact}
               component={route.main}
             />
-          ) : (
+          );
+        } else if (route.path === "/login") {
+          routeResult = (
+            <ProtectedRoute
+              key={route.id}
+              path={route.path}
+              exact={route.exact}
+              component={route.main}
+            />
+          );
+        } else {
+          routeResult = (
             <Route
               key={route.id}
               path={route.path}
               exact={route.exact}
               component={route.main}
             />
-          )
-        );
+          );
+        }
+        return routeResult;
       });
     }
 
-    return <Switch>{result}</Switch>;
+    return result;
   };
 
   const { classes } = props;
@@ -71,7 +85,9 @@ function App(props) {
             />
             <MobileHeader onShowAside={onShowAside} />
             <div className={classes.article}>
-              {showContentMenus(routes)}
+              <Switch>
+                {showContentMenus(routes)}
+              </Switch>
             </div>
           </div>
         </Router>
