@@ -5,7 +5,7 @@ import { Button } from "@material-ui/core";
 import { compose } from "redux";
 import { reduxForm, Field } from "redux-form";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
-import renderTextField from "../../FormHelper/TextField";
+import renderTextField from "../../../commons/FormHelper/TextField";
 import validate from "./validate";
 import styles from "./styles";
 import * as titleConstants from "../../../constants/ui/login";

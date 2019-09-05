@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import styles from './styles';
-import { MemberTopInfo } from '../../../components/MyPageMember';
+import { MemberTopInfo, MemberTopFavorite } from '../../../components/MyPageMember';
 
 function MemberTop(props) {
   const { classes, userInfo } = props;
@@ -12,6 +12,7 @@ function MemberTop(props) {
   return (
     <div className={classes.container}>
       <MemberTopInfo userInfo={userInfo} />
+      <MemberTopFavorite />
     </div>
   );
 }

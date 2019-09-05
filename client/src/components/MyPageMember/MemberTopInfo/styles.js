@@ -3,6 +3,7 @@ const styles = (theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
+    marginBottom: 30
   },
   avatarBoxLeft: {
     display: 'flex',
@@ -25,6 +26,14 @@ const styles = (theme) => ({
     '&:hover': {
       color: theme.color.primary
     }
+  },
+  nominated: {
+    color: theme.color.color6,
+    marginBottom: 30
+  },
+  listFavorite: {
+    color: theme.color.color6,
+    marginBottom: 30
   }
 });
 

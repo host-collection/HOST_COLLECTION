@@ -2,13 +2,14 @@ import React from 'react';
 import { withStyles } from '@material-ui/styles';
 import PropTypes from 'prop-types';
 import styles from './styles';
+import { MemberSettingsInfo } from '../../../components/MyPageMember';
 
 function MemberSettings(props) {
   const { classes } = props;
 
   return (
     <div className={classes.container}>
-      Hello member settings nè
+      <MemberSettingsInfo />
     </div>
   );
 }
