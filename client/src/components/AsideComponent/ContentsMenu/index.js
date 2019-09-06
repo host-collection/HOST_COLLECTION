@@ -119,7 +119,7 @@ function ContentsMenu(props) {
   };
 
   return (
-    <div className={mobile ? classes.mobileContents : classes.contentsMenu}>
+    <div className={`${classes.contentsMenu} ${mobile ? 'mobile' : ''}`}>
       <h5>{titleContant.CONTENTS}</h5>
       <ul>
         { showContentMenu(menus) }

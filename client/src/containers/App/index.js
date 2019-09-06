@@ -10,7 +10,7 @@ import Aside from "../Aside";
 import { routes } from "../../routes";
 import { MobileHeader } from "../../components/AsideComponent";
 import OverlayHelper from "../../commons/OverlayHelper";
-import GlobalLoading from "../../components/GlobalLoading";
+import GlobalLoading from "../../commons/GlobalLoading";
 import { PrivateRoute } from "../../commons/PrivateRouter";
 import { ProtectedRoute } from "../../commons/ProtectedRouter";
 

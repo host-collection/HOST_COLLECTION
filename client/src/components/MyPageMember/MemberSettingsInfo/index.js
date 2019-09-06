@@ -122,7 +122,7 @@ MemberSettingsInfo.propTypes = {
 };
 
 const withReduxForm = reduxForm({
-  form: titleConstants.MEMBER_SETTINGS_FORM,
+  form: titleConstants.MEMBER_SETTINGS_FORM_NAME,
   enableReinitialize: true,
   validate
 });

@@ -23,6 +23,36 @@ const styles = (theme) => ({
           marginRight: 10
         }
       }
+    },
+    '&.mobile': {
+      display: 'none',
+      [theme.breakpoints.down('sm')]: {
+        display: 'block',
+        margin: '-15px -15px 30px -15px',
+        '& h5': {
+          display: 'none'
+        },
+        '& ul': {
+          display: 'flex',
+          padding: 0,
+          overflowX: 'scroll',
+          '& li a': {
+            border: 0,
+            borderRight: `2px solid ${theme.color.color3}`,
+            width: 75,
+            height: 75,
+            background: theme.color.color5,
+            flexDirection: 'column',
+            alignItems: 'center',
+            fontSize: 10,
+            '& svg': {
+              fontSize: 40,
+              margin: 0,
+              marginBottom: 10,
+            }
+          }
+        }
+      }
     }
   }
 });

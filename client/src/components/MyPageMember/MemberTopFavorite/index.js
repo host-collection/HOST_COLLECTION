@@ -10,6 +10,7 @@ import * as titleConstants from '../../../constants/ui/myPage';
 import styles from "./styles";
 import FavoriteHostItem from "../FavoriteHostItem";
 import FavoriteShopItem from "../FavoriteShopItem";
+import TitleChild from "../../TitleChild";
 
 function TabPanel(props) {
   const {
@@ -52,6 +53,7 @@ function MemberTopFavorite(props) {
 
   return (
     <div className={classes.container}>
+      <TitleChild titleChild={titleConstants.LIST_FAVORITE} />
       <AppBar position="static" color="default" className={classes.tabBar}>
         <Tabs
           value={value}

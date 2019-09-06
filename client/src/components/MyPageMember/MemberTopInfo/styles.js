@@ -42,6 +42,17 @@ const styles = (theme) => ({
   listFavorite: {
     color: theme.color.color6,
     marginBottom: 30
+  },
+  goToShopManage: {
+    display: 'table',
+    padding: '10px 20px',
+    background: theme.color.primary,
+    color: 'white',
+    borderRadius: 3,
+    '&:hover': {
+      transform: 'translateY(-2px)',
+      boxShadow: '0 3px 6px rgba(0, 0, 0, .3)'
+    }
   }
 });
 
