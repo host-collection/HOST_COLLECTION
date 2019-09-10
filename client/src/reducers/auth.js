@@ -26,7 +26,7 @@ const reducer = (state = initialState, action) => {
       const { data } = action.payload;
       return {
         ...state,
-        token: data.access_token
+        token: data.token
       };
     }
     case authConstants.LOGIN_FLOW_FAILED: {

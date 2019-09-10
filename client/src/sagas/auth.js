@@ -21,7 +21,7 @@ function* loginFlow({ payload }) {
     if (data) {
       yield put(checkUserSuccess(data));
       yield put(setAuth('2'));
-      localStorage.setItem("token", data.access_token);
+      localStorage.setItem("token", data.token);
       if (history.goBack()) {
         history.goBack();
       } else {
@@ -41,7 +41,6 @@ function* logoutFlow({ payload }) {
   yield put(showLoading());
   yield put(setAuth('3'));
   localStorage.removeItem("token");
-  localStorage.removeItem("userId");
   yield delay(1000);
   yield put(hideLoading());
   window.location.reload();

@@ -64,7 +64,7 @@ const reducer = (state = initialState, action) => {
       };
     }
     case generalConstants.FETCH_GENERAL_INFORMATION_FAILED: {
-      failedToast();
+      failedToast(message.FETCH_GENERAL_INFO_FAILED_MESSAGE);
       return {
         ...state,
         generalInfo: []

@@ -24,3 +24,4 @@ export const MANGA = 'MANGA';
 
 export const FETCH_LOCATION_FAILED_MESSAGE = 'Fetch locations error!';
 export const FETCH_BANNER_ASIDE_FAILED_MESSAGE = 'Fetch Banner aside error!';
+export const FETCH_GENERAL_INFO_FAILED_MESSAGE = 'Fetch General information error!';

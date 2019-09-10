@@ -4,7 +4,6 @@ import {
 import { showLoading, hideLoading } from "../actions/loading";
 import { getLocation, getBannerAside, getGeneralInfo } from "../apis/general";
 import * as generalConstants from "../constants/events/general";
-import { STATUS_CODE } from "../constants";
 import {
   fetchLocationSuccess,
   fetchLocationFailed,
@@ -17,46 +16,48 @@ import {
 
 function* watchFetchLocationAction() {
   while (true) {
-    yield take(generalConstants.FETCH_LOCATION);
-    yield put(showLoading());
-    const res = yield call(getLocation);
-    const { status, data } = res;
-    if (status === STATUS_CODE.SUCCESS) {
-      yield put(fetchLocationSuccess(data));
+    try {
+      yield take(generalConstants.FETCH_LOCATION);
+      yield put(showLoading());
+      const res = yield call(getLocation);
+      yield delay(500);
+      yield put(fetchLocationSuccess(res.data));
       yield put(hideLoading());
-    } else {
-      yield put(fetchLocationFailed(data));
+    } catch (error) {
+      yield put(hideLoading());
+      yield put(fetchLocationFailed(error));
     }
-    yield put(hideLoading());
   }
 }
 
 function* watchFetchBannerAsideAction() {
   while (true) {
-    yield take(generalConstants.FETCH_BANNER_ASIDE);
-    yield put(showLoading());
-    const res = yield call(getBannerAside);
-    const { status, data } = res;
-    if (status === STATUS_CODE.SUCCESS) {
+    try {
+      yield take(generalConstants.FETCH_BANNER_ASIDE);
+      yield put(showLoading());
+      const res = yield call(getBannerAside);
       yield delay(500);
-      yield put(fetchBannerAsideSuccess(data));
+      yield put(fetchBannerAsideSuccess(res.data));
       yield put(hideLoading());
-    } else {
+    } catch (error) {
       yield put(hideLoading());
-      yield put(fetchBannerAsideFailed(data));
+      yield put(fetchBannerAsideFailed(error));
     }
   }
 }
 
 function* watchFetchGeneralInfoAction() {
   while (true) {
-    yield take(generalConstants.FETCH_GENERAL_INFORMATION);
-    const res = yield call(getGeneralInfo);
-    const { status, data } = res;
-    if (status === STATUS_CODE.SUCCESS) {
-      yield put(fetchGeneralInfoSuccess(data));
-    } else {
-      yield put(fetchGeneralInfoFailed(data));
+    try {
+      yield take(generalConstants.FETCH_GENERAL_INFORMATION);
+      yield put(showLoading());
+      const res = yield call(getGeneralInfo);
+      yield put(fetchGeneralInfoSuccess(res.data));
+      yield delay(500);
+      yield put(hideLoading());
+    } catch (error) {
+      yield put(hideLoading());
+      yield put(fetchGeneralInfoFailed(error));
     }
   }
 }

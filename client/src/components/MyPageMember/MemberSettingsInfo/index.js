@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { withStyles } from "@material-ui/styles";
 import PropTypes from "prop-types";
 import { compose } from "redux";
@@ -6,16 +6,25 @@ import { connect } from "react-redux";
 import { reduxForm, Field } from "redux-form";
 import { NavLink } from 'react-router-dom';
 import renderTextField from "../../../commons/FormHelper/TextField";
-import renderImageUpload from "../../../commons/FormHelper/ImageUpload";
+import renderAvatarUpload from "../../../commons/FormHelper/AvatarUpload";
 import Switches from "../../../commons/FormHelper/Switches";
 import TitleChild from "../../TitleChild";
 import styles from "./styles";
 import validate from "./validate";
 import * as titleConstants from "../../../constants/ui/myPage";
 
+function getBase64(img, callback) {
+  const reader = new FileReader();
+  reader.addEventListener("load", () => callback(reader.result));
+  reader.readAsDataURL(img);
+}
+
 function MemberSettingsInfo(props) {
   const { classes, handleSubmit } = props;
-  const [switchState, setSwitchState] = React.useState({
+  const [imgUrl, setImgUrl] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const [switchState, setSwitchState] = useState({
     snsUpdate: false,
     favoriteAnniversary: true,
     vibrate: true,
@@ -29,6 +38,20 @@ function MemberSettingsInfo(props) {
 
   const onHandleSwitch = name => event => {
     setSwitchState({ ...switchState, [name]: event.target.checked });
+  };
+
+  const handleChange = info => {
+    if (info.file.status === "uploading") {
+      setLoading(true);
+      return;
+    }
+    if (info.file.status === "done") {
+      const imgUrl = info.file.response.data.link;
+      getBase64(info.file.originFileObj, () => {
+        setImgUrl(imgUrl);
+        setLoading(false);
+      });
+    }
   };
 
   return (
@@ -51,12 +74,12 @@ function MemberSettingsInfo(props) {
           <TitleChild titleChild={titleConstants.UPDATE_AVATAR} />
           <Field
             id="avatar"
-            label={titleConstants.UPLOAD_NOW}
             name="avatar"
-            component={renderImageUpload}
+            component={renderAvatarUpload}
             className={classes.textField}
-            fullWidth
-            margin="normal"
+            handleChange={handleChange}
+            imgUrl={imgUrl}
+            loading={loading}
           />
         </div>
         <div className={classes.formGroup}>

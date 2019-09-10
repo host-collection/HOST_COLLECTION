@@ -111,3 +111,16 @@ export const YEN = 'Yen';
 
 export const SHOP_CLICK = "Click to view this shop's detail";
 export const PROFILE_FORM_NAME = 'PROFILE_FORM_NAME';
+
+export const AQUARIUS = 'Aquarius';
+export const PISCES = 'Pisces';
+export const ARIES = 'Aries';
+export const TAURUS = 'Taurus';
+export const GEMINI = 'Gemini';
+export const CANCER = 'Cancer';
+export const IEO = 'Ieo';
+export const VIRGO = 'Virgo';
+export const LIBRA = 'Libra';
+export const SCORPIO = 'Scorpio';
+export const SAGITTARIUS = 'Sagittarius';
+export const CAPRICORN = 'Capricorn';
