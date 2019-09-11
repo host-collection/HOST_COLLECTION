@@ -72,6 +72,7 @@ export const HASHTAGS = 'Hashtags';
 export const PHONE_NUMBER = 'Phone number';
 export const EMAIL = 'Email';
 export const LINE = 'LINE';
+export const ADDRESS = 'Address';
 export const UPLOAD_PHOTO = 'UPLOAD PHOTO';
 export const PHOTO_GALLERY = 'PHOTO GALLERY';
 

@@ -157,8 +157,24 @@ function HostProfileEdit(props) {
       <div className={classes.contactForm}>
         <div className={classes.textFieldBottom}>
           <Field
+            label={titleConstants.ADDRESS}
+            name="address"
+            component={renderTextField}
+            margin="normal"
+          />
+        </div>
+        <div className={classes.textFieldBottom}>
+          <Field
             label={titleConstants.PHONE_NUMBER}
             name="phoneNumber"
+            component={renderTextField}
+            margin="normal"
+          />
+        </div>
+        <div className={classes.textFieldBottom}>
+          <Field
+            label={titleConstants.LINE}
+            name="line"
             component={renderTextField}
             margin="normal"
           />
@@ -168,14 +184,6 @@ function HostProfileEdit(props) {
             disabled
             label={titleConstants.EMAIL}
             name="email"
-            component={renderTextField}
-            margin="normal"
-          />
-        </div>
-        <div className={classes.textFieldBottom}>
-          <Field
-            label={titleConstants.LINE}
-            name="line"
             component={renderTextField}
             margin="normal"
           />

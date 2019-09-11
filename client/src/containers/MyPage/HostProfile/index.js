@@ -28,29 +28,47 @@ function HostProfile(props) {
   const [isChange, setIsChange] = useState(false);
 
   const onSubmitProfile = (data) => {
-    const { nickName, name, } = data;
+    const {
+      fullName,
+      nickName,
+      dateOfBirth,
+      height,
+      bloodGroup,
+      zodiac,
+      otherInformation,
+      phoneNumber,
+      email,
+      line,
+      address
+    } = data;
     // console.log(data);
     // console.log(hashTags);
     // console.log(photoList);
-    console.log(typeof imgUrl);
     setIsChange(false);
 
-    // axios({
-    //   method: 'put',
-    //   url: `http://52.196.231.30/api/users/${userInfo.id}`,
-    //   data: {
-    //     nick_name: nickName,
-    //     avatar: imgUrl
-    //   },
-    //   headers: {
-    //     Authorization: `Bearer ${localStorage.getItem('token')}`
-    //   }
-    // }).then(res => {
-    //   console.log(res.data);
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
+    axios({
+      method: 'put',
+      url: `http://52.196.231.30/api/users/${userInfo.id}`,
+      data: {
+        name: fullName,
+        nick_name: nickName,
+        avatar: imgUrl,
+        email,
+        phone: phoneNumber,
+        line,
+        address,
+        height,
+        blood_group: bloodGroup,
+        zodiac,
+        date_of_birth: dateOfBirth,
+        description: otherInformation,
+      },
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    }).then(res => {
+      console.log(res.data);
+    });
   };
 
   const onChangeTags = tags => {
@@ -140,6 +158,7 @@ const mapStateToProps = state => {
       phoneNumber: userInfo.phone,
       email: userInfo.email,
       line: userInfo.line,
+      address: userInfo.address
     }
   };
 };
