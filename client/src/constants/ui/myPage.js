@@ -73,6 +73,7 @@ export const PHONE_NUMBER = 'Phone number';
 export const EMAIL = 'Email';
 export const LINE = 'LINE';
 export const UPLOAD_PHOTO = 'UPLOAD PHOTO';
+export const PHOTO_GALLERY = 'PHOTO GALLERY';
 
 export const BALANCES = 'BALANCES';
 export const POINTS = 'Point(s)';
@@ -124,3 +125,5 @@ export const LIBRA = 'Libra';
 export const SCORPIO = 'Scorpio';
 export const SAGITTARIUS = 'Sagittarius';
 export const CAPRICORN = 'Capricorn';
+
+export const LEAVE_FORM_MESSAGE = 'The changed information has not been saved, are you sure you want to leave?';

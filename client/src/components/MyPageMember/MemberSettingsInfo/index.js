@@ -37,18 +37,20 @@ function MemberSettingsInfo(props) {
   };
 
   const onHandleSwitch = name => event => {
-    setSwitchState({ ...switchState, [name]: event.target.checked });
+    setSwitchState({
+      ...switchState,
+      [name]: event.target.checked
+    });
   };
 
-  const handleChange = info => {
+  const onUploadAvatar = info => {
     if (info.file.status === "uploading") {
       setLoading(true);
       return;
     }
     if (info.file.status === "done") {
-      const imgUrl = info.file.response.data.link;
-      getBase64(info.file.originFileObj, () => {
-        setImgUrl(imgUrl);
+      getBase64(info.file.originFileObj, (imageUrl) => {
+        setImgUrl(imageUrl);
         setLoading(false);
       });
     }
@@ -77,7 +79,7 @@ function MemberSettingsInfo(props) {
             name="avatar"
             component={renderAvatarUpload}
             className={classes.textField}
-            handleChange={handleChange}
+            onUploadAvatar={onUploadAvatar}
             imgUrl={imgUrl}
             loading={loading}
           />

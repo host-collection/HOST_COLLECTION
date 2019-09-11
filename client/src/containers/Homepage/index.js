@@ -12,7 +12,7 @@ function Homepage(props) {
   return (
     <div className={classes.container}>
       <ContentsMenu mobile="mobile" />
-      <div style={{ margin: '-15px -30px 30px -30px' }}>
+      <div className={classes.slider}>
         <Carousel
           showThumbs={false}
           swipeable
